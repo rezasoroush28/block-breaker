@@ -6,20 +6,12 @@ using UnityEngine.Serialization;
 [CreateAssetMenu(fileName = "LevelModel" , order = 1)]
 public class LevelModel : ScriptableObject
 {
-    //This is Level 1
-    public abstract class Brick
+    [System.Serializable]
+    public struct RowData
     {
-        //int health
-        //bool isAvailable
-    }
-    
-    
-    [System.Serializable] public class BrickRows
-    { 
-        [SerializeField] private List<Brick> _listRows;
+        public GameObject[] bricks;
+        
     }
 
-    [SerializeField] private List<BrickRows> allBricks;
-
-
+    public RowData[] rows ;
 }
