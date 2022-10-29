@@ -54,6 +54,7 @@
   <ItemGroup>
      <Compile Include="Assets\Demigiant\DOTweenPro\DOTweenProShortcuts.cs" />
      <Compile Include="Assets\Demigiant\DOTweenPro\DOTweenTextMeshPro.cs" />
+     <Compile Include="Assets\BrickRows.cs" />
      <Compile Include="Assets\StartButtonManager.cs" />
      <Compile Include="Assets\LevelModel.cs" />
      <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModulePhysics2D.cs" />
@@ -65,7 +66,8 @@
      <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModuleUtils.cs" />
      <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModuleUI.cs" />
      <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModuleAudio.cs" />
-     <Compile Include="Assets\BrickRows.cs" />
+     <Compile Include="Assets\data\prefabs\BrickModel.cs" />
+     <Compile Include="Assets\GameSceneHandler.cs" />
      <None Include="Assets\Demigiant\readme_DOTweenPro.txt" />
      <None Include="Assets\Demigiant\DOTweenPro\readme.txt" />
      <None Include="Assets\Demigiant\DemiLib\Core\DemiLib.xml" />
