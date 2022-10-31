@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee15ea7fc19b4154db10b719d5656158, type: 3}
   m_Name: LevelModelForLevel1
   m_EditorClassIdentifier: 
-  rows: []
+  rows:
+  - bricks: []

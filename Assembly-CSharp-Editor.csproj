@@ -769,6 +769,18 @@
       <Project>{c70c0144-ac00-f2b2-c4e8-6182a5c9fc90}</Project>
       <Name>Assembly-CSharp</Name>
     </ProjectReference>
+    <ProjectReference Include="Unity.2D.Animation.Samples.Runtime.csproj">
+      <Project>{949d5eda-13fc-4a9f-9817-676dbdaae170}</Project>
+      <Name>Unity.2D.Animation.Samples.Runtime</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.2D.Animation.Samples.Dependency.csproj">
+      <Project>{776b7d1f-83aa-3aa3-4150-30e8e2e3b42c}</Project>
+      <Name>Unity.2D.Animation.Samples.Dependency</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.2D.Animation.Samples.Editor.csproj">
+      <Project>{7a224de7-d338-2ecf-a9fb-bf62b6c63287}</Project>
+      <Name>Unity.2D.Animation.Samples.Editor</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
