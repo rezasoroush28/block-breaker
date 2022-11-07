@@ -22,7 +22,7 @@ namespace DG.Tweening
         /// <summary>Tweens a TextMeshPro's color to the given value.
         /// Also stores the TextMeshPro as the tween's target so it can be used for filtered operations</summary>
         /// <param name="endValue">The end value to reach</param><param name="duration">The duration of the tween</param>
-        public static TweenerCore<Color, Color, ColorOptions> DOColor(this TMP_Text target, Color endValue, float duration)
+        public static TweenerCore<Color, Color, ColorOptions> DoColor(this TMP_Text target, Color endValue, float duration)
         {
             TweenerCore<Color, Color, ColorOptions> t = DOTween.To(() => target.color, x => target.color = x, endValue, duration);
             t.SetTarget(target);
@@ -32,7 +32,7 @@ namespace DG.Tweening
         /// <summary>Tweens a TextMeshPro's faceColor to the given value.
         /// Also stores the TextMeshPro as the tween's target so it can be used for filtered operations</summary>
         /// <param name="endValue">The end value to reach</param><param name="duration">The duration of the tween</param>
-        public static TweenerCore<Color, Color, ColorOptions> DOFaceColor(this TMP_Text target, Color32 endValue, float duration)
+        public static TweenerCore<Color, Color, ColorOptions> DoFaceColor(this TMP_Text target, Color32 endValue, float duration)
         {
             TweenerCore<Color, Color, ColorOptions> t = DOTween.To(() => target.faceColor, x => target.faceColor = x, endValue, duration);
             t.SetTarget(target);
@@ -42,7 +42,7 @@ namespace DG.Tweening
         /// <summary>Tweens a TextMeshPro's outlineColor to the given value.
         /// Also stores the TextMeshPro as the tween's target so it can be used for filtered operations</summary>
         /// <param name="endValue">The end value to reach</param><param name="duration">The duration of the tween</param>
-        public static TweenerCore<Color, Color, ColorOptions> DOOutlineColor(this TMP_Text target, Color32 endValue, float duration)
+        public static TweenerCore<Color, Color, ColorOptions> DoOutlineColor(this TMP_Text target, Color32 endValue, float duration)
         {
             TweenerCore<Color, Color, ColorOptions> t = DOTween.To(() => target.outlineColor, x => target.outlineColor = x, endValue, duration);
             t.SetTarget(target);
@@ -53,7 +53,7 @@ namespace DG.Tweening
         /// Also stores the TextMeshPro as the tween's target so it can be used for filtered operations</summary>
         /// <param name="endValue">The end value to reach</param><param name="duration">The duration of the tween</param>
         /// <param name="useSharedMaterial">If TRUE will use the fontSharedMaterial instead than the fontMaterial</param>
-        public static TweenerCore<Color, Color, ColorOptions> DOGlowColor(this TMP_Text target, Color endValue, float duration, bool useSharedMaterial = false)
+        public static TweenerCore<Color, Color, ColorOptions> DoGlowColor(this TMP_Text target, Color endValue, float duration, bool useSharedMaterial = false)
         {
             TweenerCore<Color, Color, ColorOptions> t = useSharedMaterial
                 ? target.fontSharedMaterial.DOColor(endValue, "_GlowColor", duration)
@@ -65,7 +65,7 @@ namespace DG.Tweening
         /// <summary>Tweens a TextMeshPro's alpha color to the given value.
         /// Also stores the TextMeshPro as the tween's target so it can be used for filtered operations</summary>
         /// <param name="endValue">The end value to reach</param><param name="duration">The duration of the tween</param>
-        public static TweenerCore<Color, Color, ColorOptions> DOFade(this TMP_Text target, float endValue, float duration)
+        public static TweenerCore<Color, Color, ColorOptions> DoFade(this TMP_Text target, float endValue, float duration)
         {
             TweenerCore<Color, Color, ColorOptions> t = DOTween.ToAlpha(() => target.color, x => target.color = x, endValue, duration);
             t.SetTarget(target);
@@ -75,7 +75,7 @@ namespace DG.Tweening
         /// <summary>Tweens a TextMeshPro faceColor's alpha to the given value.
         /// Also stores the TextMeshPro as the tween's target so it can be used for filtered operations</summary>
         /// <param name="endValue">The end value to reach</param><param name="duration">The duration of the tween</param>
-        public static TweenerCore<Color, Color, ColorOptions> DOFaceFade(this TMP_Text target, float endValue, float duration)
+        public static TweenerCore<Color, Color, ColorOptions> DoFaceFade(this TMP_Text target, float endValue, float duration)
         {
             TweenerCore<Color, Color, ColorOptions> t = DOTween.ToAlpha(() => target.faceColor, x => target.faceColor = x, endValue, duration);
             t.SetTarget(target);
@@ -89,7 +89,7 @@ namespace DG.Tweening
         /// <summary>Tweens a TextMeshPro's scale to the given value (using correct uniform scale as TMP requires).
         /// Also stores the TextMeshPro as the tween's target so it can be used for filtered operations</summary>
         /// <param name="endValue">The end value to reach</param><param name="duration">The duration of the tween</param>
-        public static TweenerCore<Vector3, Vector3, VectorOptions> DOScale(this TMP_Text target, float endValue, float duration)
+        public static TweenerCore<Vector3, Vector3, VectorOptions> DoScale(this TMP_Text target, float endValue, float duration)
         {
             Transform trans = target.transform;
             Vector3 endValueV3 = new Vector3(endValue, endValue, endValue);
@@ -101,7 +101,7 @@ namespace DG.Tweening
         /// <summary>Tweens a TextMeshPro's fontSize to the given value.
         /// Also stores the TextMeshPro as the tween's target so it can be used for filtered operations</summary>
         /// <param name="endValue">The end value to reach</param><param name="duration">The duration of the tween</param>
-        public static TweenerCore<float, float, FloatOptions> DOFontSize(this TMP_Text target, float endValue, float duration)
+        public static TweenerCore<float, float, FloatOptions> DoFontSize(this TMP_Text target, float endValue, float duration)
         {
             TweenerCore<float, float, FloatOptions> t = DOTween.To(() => target.fontSize, x => target.fontSize = x, endValue, duration);
             t.SetTarget(target);
@@ -111,7 +111,7 @@ namespace DG.Tweening
         /// <summary>Tweens a TextMeshPro's maxVisibleCharacters to the given value.
         /// Also stores the TextMeshPro as the tween's target so it can be used for filtered operations</summary>
         /// <param name="endValue">The end value to reach</param><param name="duration">The duration of the tween</param>
-        public static TweenerCore<int, int, NoOptions> DOMaxVisibleCharacters(this TMP_Text target, int endValue, float duration)
+        public static TweenerCore<int, int, NoOptions> DoMaxVisibleCharacters(this TMP_Text target, int endValue, float duration)
         {
             TweenerCore<int, int, NoOptions> t = DOTween.To(() => target.maxVisibleCharacters, x => target.maxVisibleCharacters = x, endValue, duration);
             t.SetTarget(target);
@@ -127,7 +127,7 @@ namespace DG.Tweening
         /// <param name="scrambleChars">A string containing the characters to use for scrambling.
         /// Use as many characters as possible (minimum 10) because DOTween uses a fast scramble mode which gives better results with more characters.
         /// Leave it to NULL (default) to use default ones</param>
-        public static TweenerCore<string, string, StringOptions> DOText(this TMP_Text target, string endValue, float duration, bool richTextEnabled = true, ScrambleMode scrambleMode = ScrambleMode.None, string scrambleChars = null)
+        public static TweenerCore<string, string, StringOptions> DoText(this TMP_Text target, string endValue, float duration, bool richTextEnabled = true, ScrambleMode scrambleMode = ScrambleMode.None, string scrambleChars = null)
         {
             TweenerCore<string, string, StringOptions> t = DOTween.To(() => target.text, x => target.text = x, endValue, duration);
             t.SetOptions(richTextEnabled, scrambleMode, scrambleChars)

@@ -9,9 +9,9 @@ using UnityEngine;
 #pragma warning disable 1591
 namespace DG.Tweening
 {
-	public static class DOTweenProShortcuts
+	public static class DoTweenProShortcuts
     {
-        static DOTweenProShortcuts()
+        static DoTweenProShortcuts()
         {
             // Create stub instances of custom plugins, in order to allow IL2CPP to understand they must be included in the build
 #pragma warning disable 219
@@ -32,7 +32,7 @@ namespace DG.Tweening
         /// <param name="frequency">Frequency of the rotation. Lower values lead to wider spirals</param>
         /// <param name="depth">Indicates how much the tween should move along the spiral's axis</param>
         /// <param name="snapping">If TRUE the tween will smoothly snap all values to integers</param>
-        public static Tweener DOSpiral(
+        public static Tweener DoSpiral(
             this Transform target, float duration, Vector3? axis = null, SpiralMode mode = SpiralMode.Expand,
             float speed = 1, float frequency = 10, float depth = 0, bool snapping = false
         ) {

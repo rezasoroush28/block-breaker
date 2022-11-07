@@ -17,15 +17,15 @@ namespace DG.DOTweenEditor
     public static class DOTweenPreviewManager
     {
         static bool _previewOnlyIfSetToAutoPlay = true;
-        static readonly Dictionary<DOTweenAnimation,TweenInfo> _AnimationToTween = new Dictionary<DOTweenAnimation,TweenInfo>();
-        static readonly List<DOTweenAnimation> _TmpKeys = new List<DOTweenAnimation>();
+        static readonly Dictionary<DoTweenAnimation,TweenInfo> _AnimationToTween = new Dictionary<DoTweenAnimation,TweenInfo>();
+        static readonly List<DoTweenAnimation> _TmpKeys = new List<DoTweenAnimation>();
 
         #region Public Methods & GUI
 
         /// <summary>
         /// Returns TRUE if its actually previewing animations
         /// </summary>
-        public static bool PreviewGUI(DOTweenAnimation src)
+        public static bool PreviewGUI(DoTweenAnimation src)
         {
             if (EditorApplication.isPlaying) return false;
 
@@ -63,13 +63,13 @@ namespace DG.DOTweenEditor
             EditorGUI.BeginDisabledGroup(isPreviewing);
             if (GUILayout.Button("► Play All <i>on GameObject</i>", Styles.btPreview)) {
                 if (!isPreviewing) StartupGlobalPreview();
-                DOTweenAnimation[] anims = src.gameObject.GetComponents<DOTweenAnimation>();
-                foreach (DOTweenAnimation anim in anims) AddAnimationToGlobalPreview(anim);
+                DoTweenAnimation[] anims = src.gameObject.GetComponents<DoTweenAnimation>();
+                foreach (DoTweenAnimation anim in anims) AddAnimationToGlobalPreview(anim);
             }
             if (GUILayout.Button("► Play All <i>in Scene</i>", Styles.btPreview)) {
                 if (!isPreviewing) StartupGlobalPreview();
-                DOTweenAnimation[] anims = Object.FindObjectsOfType<DOTweenAnimation>();
-                foreach (DOTweenAnimation anim in anims) AddAnimationToGlobalPreview(anim);
+                DoTweenAnimation[] anims = Object.FindObjectsOfType<DoTweenAnimation>();
+                foreach (DoTweenAnimation anim in anims) AddAnimationToGlobalPreview(anim);
             }
             EditorGUI.EndDisabledGroup();
             GUILayout.EndHorizontal();
@@ -93,7 +93,7 @@ namespace DG.DOTweenEditor
                 int playingTweens = 0;
                 int completedTweens = 0;
                 int pausedTweens = 0;
-                foreach (KeyValuePair<DOTweenAnimation, TweenInfo> kvp in _AnimationToTween) {
+                foreach (KeyValuePair<DoTweenAnimation, TweenInfo> kvp in _AnimationToTween) {
                     Tween t = kvp.Value.tween;
                     if (t.IsPlaying()) playingTweens++;
                     else if (t.IsComplete()) completedTweens++;
@@ -118,7 +118,7 @@ namespace DG.DOTweenEditor
         public static void StopAllPreviews()
         {
             _TmpKeys.Clear();
-            foreach (KeyValuePair<DOTweenAnimation,TweenInfo> kvp in _AnimationToTween) {
+            foreach (KeyValuePair<DoTweenAnimation,TweenInfo> kvp in _AnimationToTween) {
                 _TmpKeys.Add(kvp.Key);
             }
             StopPreview(_TmpKeys);
@@ -151,7 +151,7 @@ namespace DG.DOTweenEditor
 //            EditorApplication.playmodeStateChanged += StopAllPreviews;
         }
 
-        static void AddAnimationToGlobalPreview(DOTweenAnimation src)
+        static void AddAnimationToGlobalPreview(DoTweenAnimation src)
         {
             if (!src.isActive) return; // Ignore sources whose tweens have been set to inactive
             if (_previewOnlyIfSetToAutoPlay && !src.autoPlay) return;
@@ -165,7 +165,7 @@ namespace DG.DOTweenEditor
         static void StopPreview(GameObject go)
         {
             _TmpKeys.Clear();
-            foreach (KeyValuePair<DOTweenAnimation,TweenInfo> kvp in _AnimationToTween) {
+            foreach (KeyValuePair<DoTweenAnimation,TweenInfo> kvp in _AnimationToTween) {
                 if (kvp.Key.gameObject != go) continue;
                 _TmpKeys.Add(kvp.Key);
             }
@@ -179,7 +179,7 @@ namespace DG.DOTweenEditor
         static void StopPreview(Tween t)
         {
             TweenInfo tInfo = null;
-            foreach (KeyValuePair<DOTweenAnimation,TweenInfo> kvp in _AnimationToTween) {
+            foreach (KeyValuePair<DoTweenAnimation,TweenInfo> kvp in _AnimationToTween) {
                 if (kvp.Value.tween != t) continue;
                 tInfo = kvp.Value;
                 _AnimationToTween.Remove(kvp.Key);
@@ -203,10 +203,10 @@ namespace DG.DOTweenEditor
         }
 
         // Stops while iterating inversely, which deals better with tweens that overwrite each other
-        static void StopPreview(List<DOTweenAnimation> keys)
+        static void StopPreview(List<DoTweenAnimation> keys)
         {
             for (int i = keys.Count - 1; i > -1; --i) {
-                DOTweenAnimation anim = keys[i];
+                DoTweenAnimation anim = keys[i];
                 TweenInfo tInfo = _AnimationToTween[anim];
                 if (tInfo.isFrom) {
                     int totLoops = tInfo.tween.Loops();
@@ -228,10 +228,10 @@ namespace DG.DOTweenEditor
 
         class TweenInfo
         {
-            public DOTweenAnimation animation;
+            public DoTweenAnimation animation;
             public Tween tween;
             public bool isFrom;
-            public TweenInfo(DOTweenAnimation animation, Tween tween, bool isFrom)
+            public TweenInfo(DoTweenAnimation animation, Tween tween, bool isFrom)
             {
                 this.animation = animation;
                 this.tween = tween;

@@ -52,9 +52,9 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\Samples\2D Animation\5.0.9\Samples\5 SpriteSwap\Scripts\Runtime\LoadSwapDLC.cs" />
-     <Compile Include="Assets\Samples\2D Animation\5.0.9\Samples\5 SpriteSwap\Scripts\Runtime\SwapPart.cs" />
      <Compile Include="Assets\Samples\2D Animation\5.0.9\Samples\5 SpriteSwap\Scripts\Runtime\SwapFullSkin.cs" />
+     <Compile Include="Assets\Samples\2D Animation\5.0.9\Samples\5 SpriteSwap\Scripts\Runtime\SwapPart.cs" />
+     <Compile Include="Assets\Samples\2D Animation\5.0.9\Samples\5 SpriteSwap\Scripts\Runtime\LoadSwapDLC.cs" />
      <None Include="Assets\Samples\2D Animation\5.0.9\Samples\5 SpriteSwap\Scripts\Runtime\Unity.2D.Animation.Samples.Runtime.asmdef" />
  <Reference Include="UnityEngine">
  <HintPath>C:/Program Files/Unity 2020.3.25f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>

@@ -21,7 +21,7 @@ using UnityEngine.UI;
 
 namespace DG.DOTweenEditor
 {
-    [CustomEditor(typeof(DOTweenAnimation))]
+    [CustomEditor(typeof(DoTweenAnimation))]
     public class DOTweenAnimationInspector : ABSAnimationInspector
     {
         enum FadeTargetType
@@ -152,7 +152,7 @@ namespace DG.DOTweenEditor
         static string[] _animationTypeNoSlashes; // _AnimationType list without slashes in values
         static string[] _datString; // String representation of DOTweenAnimation enum (here for caching reasons)
 
-        DOTweenAnimation _src;
+        DoTweenAnimation _src;
         DOTweenSettings _settings;
         bool _runtimeEditMode; // If TRUE allows to change and save stuff at runtime
         bool _refreshRequired; // If TRUE refreshes components data
@@ -179,7 +179,7 @@ namespace DG.DOTweenEditor
 
         void OnEnable()
         {
-            _src = target as DOTweenAnimation;
+            _src = target as DoTweenAnimation;
             _settings = DOTweenUtilityWindow.GetDOTweenSettings();
 
             onStartProperty = base.serializedObject.FindProperty("onStart");
@@ -304,16 +304,16 @@ namespace DG.DOTweenEditor
                         );
                     bool innerChanged = EditorGUI.EndChangeCheck();
                     if (innerChanged) {
-                        _src.targetGO = null;
+                        _src.targetGo = null;
                         GUI.changed = true;
                     }
                     if (_src.targetIsSelf) GUILayout.Label(_GuiC_selfTarget_true.tooltip);
                     else {
-                        using (new DeGUI.ColorScope(null, null, _src.targetGO == null ? Color.red : Color.white)) {
-                            _src.targetGO = (GameObject)EditorGUILayout.ObjectField(_src.targetGO, typeof(GameObject), true);
+                        using (new DeGUI.ColorScope(null, null, _src.targetGo == null ? Color.red : Color.white)) {
+                            _src.targetGo = (GameObject)EditorGUILayout.ObjectField(_src.targetGo, typeof(GameObject), true);
                         }
-                        _src.tweenTargetIsTargetGO = DeGUILayout.ToggleButton(
-                            _src.tweenTargetIsTargetGO, _src.tweenTargetIsTargetGO ? _GuiC_tweenTargetIsTargetGO_true : _GuiC_tweenTargetIsTargetGO_false,
+                        _src.tweenTargetIsTargetGo = DeGUILayout.ToggleButton(
+                            _src.tweenTargetIsTargetGo, _src.tweenTargetIsTargetGo ? _GuiC_tweenTargetIsTargetGO_true : _GuiC_tweenTargetIsTargetGO_false,
                             GUILayout.Width(131)
                         );
                     }
@@ -321,12 +321,12 @@ namespace DG.DOTweenEditor
                 if (check) _refreshRequired = true;
             GUILayout.EndHorizontal();
 
-            GameObject targetGO = _src.targetIsSelf ? _src.gameObject : _src.targetGO;
+            GameObject targetGO = _src.targetIsSelf ? _src.gameObject : _src.targetGo;
 
             if (targetGO == null) {
                 // Uses external target gameObject but it's not set
-                if (_src.targetGO != null || _src.target != null) {
-                    _src.targetGO = null;
+                if (_src.targetGo != null || _src.target != null) {
+                    _src.targetGo = null;
                     _src.target = null;
                     GUI.changed = true;
                 }
@@ -484,7 +484,7 @@ namespace DG.DOTweenEditor
                     break;
                 case DOTweenAnimationType.Rotate:
                 case DOTweenAnimationType.LocalRotate:
-                    bool isRigidbody2D = DOTweenModuleUtils.Physics.HasRigidbody2D(_src);
+                    bool isRigidbody2D = DoTweenModuleUtils.Physics.HasRigidbody2D(_src);
                     if (isRigidbody2D) GUIEndValueFloat();
                     else {
                         GUIEndValueV3(targetGO);
@@ -600,7 +600,7 @@ namespace DG.DOTweenEditor
                     srcTarget = targetGO.GetComponent(t);
                     if (srcTarget != null) {
                         _src.target = srcTarget;
-                        _src.targetType = DOTweenAnimation.TypeToDOTargetType(t);
+                        _src.targetType = DoTweenAnimation.TypeToDoTargetType(t);
                         return true;
                     }
                 }
@@ -612,7 +612,7 @@ namespace DG.DOTweenEditor
                     srcTarget = targetGO.GetComponent(t);
                     if (srcTarget != null) {
                         _src.target = srcTarget;
-                        _src.targetType = DOTweenAnimation.TypeToDOTargetType(t);
+                        _src.targetType = DoTweenAnimation.TypeToDoTargetType(t);
                         return true;
                     }
                 }
@@ -728,10 +728,10 @@ namespace DG.DOTweenEditor
     {
         static Initializer()
         {
-            DOTweenAnimation.OnReset += OnReset;
+            DoTweenAnimation.OnReset += OnReset;
         }
 
-        static void OnReset(DOTweenAnimation src)
+        static void OnReset(DoTweenAnimation src)
         {
             DOTweenSettings settings = DOTweenUtilityWindow.GetDOTweenSettings();
             if (settings == null) return;
