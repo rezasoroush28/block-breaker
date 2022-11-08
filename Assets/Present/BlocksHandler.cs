@@ -9,7 +9,7 @@ namespace Present
     {
         [SerializeField] private LevelModel level;
         [SerializeField] private Vector2[] boundries = new Vector2[2];
-        public List<Dictionary<GameObject, Vector2>> bricksList;
+        //public List<Dictionary<GameObject, Vector2>> bricksList;
         
         
         
@@ -25,9 +25,12 @@ namespace Present
             {
                 for (int j = 0; j < rows[i].bricks.Length; j++)
                 {
-                    bricksList.Add();
+                    level.rows[i].bricks[j].position.x = boundries[1].x + (stepX * j);
+                    level.rows[i].bricks[j].position.y = boundries[1].y + (stepY * i);
+                    
                 }
             }
+            //positions Handlled;
         }
     }
     

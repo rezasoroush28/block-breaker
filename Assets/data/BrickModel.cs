@@ -3,7 +3,7 @@ using UnityEngine;
 namespace data
 {
     [CreateAssetMenu(fileName = "BrickPrefab" , order = 3)]
-    public class BrickPrefab : ScriptableObject
+    public class BrickModel : ScriptableObject
     {
         // Start is called before the first frame update
         [SerializeField] private GameObject brickGameObject;

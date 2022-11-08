@@ -8,7 +8,7 @@ namespace data
         [System.Serializable]
         public struct RowData
         {
-            public BrickPrefab[] bricks;
+            public BrickModel[] bricks;
         
         }
 
