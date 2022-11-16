@@ -6,10 +6,11 @@ using UnityEngine;
 namespace Present
 {
     
-    public class BlocksHandler : IObsserver
+    public class BlocksPresenter : IObsserver
     {
         public LevelModel level;
-        public Vector2[] boundries = new Vector2[2];
+
+        public Vector2[] boundries;
         //public List<Dictionary<GameObject, Vector2>> bricksList;
         
         
@@ -17,6 +18,7 @@ namespace Present
 
         public void ReturnTheBricks()
         {
+            boundries = new[] { level.boundries[1], level.boundries[2] };
             var stepX = -(boundries[0].x - boundries[1].x);
             var stepY = -(boundries[0].y - boundries[1].y);
             var rows = level.rows;

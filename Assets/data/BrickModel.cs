@@ -29,7 +29,7 @@ namespace data
 
     public void Notify()
     {
-        
+        throw new System.NotImplementedException();
     }
     }
 }

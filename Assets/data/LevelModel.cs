@@ -20,9 +20,9 @@ namespace data
             }
         }
         public RowData[] rows ;
-        public GameObject ballSample;
-        public GameObject hoverSample;
-
+        public Vector2[] boundries = new Vector2[2];
+        //to find boundries;
+        
         [TextArea] [SerializeField]  string comment = "points for every star";
         public int[] pointCount = new int[3];
     }
