@@ -12,4 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbf92067b0925c34babfb0db3156cea4, type: 3}
   m_Name: BlocksHandlerForLevel1
   m_EditorClassIdentifier: 
-  level: {fileID: 0}
+  level: {fileID: 11400000, guid: ece804a66b24ae6478208310042b7401, type: 2}
+  boundries:
+  - {x: -450, y: 150}
+  - {x: 408.98, y: -150}

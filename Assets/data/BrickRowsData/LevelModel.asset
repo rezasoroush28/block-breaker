@@ -12,4 +12,44 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee15ea7fc19b4154db10b719d5656158, type: 3}
   m_Name: LevelModel
   m_EditorClassIdentifier: 
-  rows: []
+  rows:
+  - bricks:
+    - {fileID: 11400000, guid: 8ee54c8872bb8854aa07d0c80316b7ac, type: 2}
+    - {fileID: 11400000, guid: 8ee54c8872bb8854aa07d0c80316b7ac, type: 2}
+    - {fileID: 11400000, guid: 8ee54c8872bb8854aa07d0c80316b7ac, type: 2}
+    - {fileID: 11400000, guid: 8ee54c8872bb8854aa07d0c80316b7ac, type: 2}
+    - {fileID: 11400000, guid: 8ee54c8872bb8854aa07d0c80316b7ac, type: 2}
+    - {fileID: 11400000, guid: 8ee54c8872bb8854aa07d0c80316b7ac, type: 2}
+    - {fileID: 11400000, guid: 8ee54c8872bb8854aa07d0c80316b7ac, type: 2}
+    - {fileID: 11400000, guid: 8ee54c8872bb8854aa07d0c80316b7ac, type: 2}
+  - bricks:
+    - {fileID: 11400000, guid: 8ee54c8872bb8854aa07d0c80316b7ac, type: 2}
+    - {fileID: 11400000, guid: 8ee54c8872bb8854aa07d0c80316b7ac, type: 2}
+    - {fileID: 11400000, guid: 8ee54c8872bb8854aa07d0c80316b7ac, type: 2}
+    - {fileID: 11400000, guid: 8ee54c8872bb8854aa07d0c80316b7ac, type: 2}
+    - {fileID: 11400000, guid: 8ee54c8872bb8854aa07d0c80316b7ac, type: 2}
+    - {fileID: 11400000, guid: 8ee54c8872bb8854aa07d0c80316b7ac, type: 2}
+    - {fileID: 11400000, guid: 8ee54c8872bb8854aa07d0c80316b7ac, type: 2}
+    - {fileID: 11400000, guid: 8ee54c8872bb8854aa07d0c80316b7ac, type: 2}
+  - bricks:
+    - {fileID: 11400000, guid: 8ee54c8872bb8854aa07d0c80316b7ac, type: 2}
+    - {fileID: 11400000, guid: 8ee54c8872bb8854aa07d0c80316b7ac, type: 2}
+    - {fileID: 11400000, guid: 8ee54c8872bb8854aa07d0c80316b7ac, type: 2}
+    - {fileID: 11400000, guid: 8ee54c8872bb8854aa07d0c80316b7ac, type: 2}
+    - {fileID: 11400000, guid: 8ee54c8872bb8854aa07d0c80316b7ac, type: 2}
+    - {fileID: 11400000, guid: 8ee54c8872bb8854aa07d0c80316b7ac, type: 2}
+    - {fileID: 11400000, guid: 8ee54c8872bb8854aa07d0c80316b7ac, type: 2}
+    - {fileID: 11400000, guid: 8ee54c8872bb8854aa07d0c80316b7ac, type: 2}
+  - bricks:
+    - {fileID: 11400000, guid: 8ee54c8872bb8854aa07d0c80316b7ac, type: 2}
+    - {fileID: 11400000, guid: 8ee54c8872bb8854aa07d0c80316b7ac, type: 2}
+    - {fileID: 11400000, guid: 8ee54c8872bb8854aa07d0c80316b7ac, type: 2}
+    - {fileID: 11400000, guid: 8ee54c8872bb8854aa07d0c80316b7ac, type: 2}
+    - {fileID: 11400000, guid: 8ee54c8872bb8854aa07d0c80316b7ac, type: 2}
+    - {fileID: 11400000, guid: 8ee54c8872bb8854aa07d0c80316b7ac, type: 2}
+    - {fileID: 11400000, guid: 8ee54c8872bb8854aa07d0c80316b7ac, type: 2}
+    - {fileID: 11400000, guid: 8ee54c8872bb8854aa07d0c80316b7ac, type: 2}
+  ballSample: {fileID: 0}
+  hoverSample: {fileID: 0}
+  comment: points for every stars
+  pointCount: 000000000000000000000000
