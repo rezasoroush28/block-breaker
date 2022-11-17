@@ -10,12 +10,14 @@ namespace Present
     {
         private LevelModel _level;
         private BallModel _ball;
+        private HoverModel _hover;
         public Vector2[] boundries;
 
-        public BlocksPresenter(LevelModel level, BallModel ball)
+        public BlocksPresenter(LevelModel level, BallModel ball, HoverModel hover)
         {
             this._level = level;
             this._ball = ball;
+            _hover = hover;
         }
         //public List<Dictionary<GameObject, Vector2>> bricksList;
         
