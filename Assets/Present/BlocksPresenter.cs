@@ -31,7 +31,8 @@ namespace Present
                     if (level.rows[i].bricks[j].brickGameObject != null)
                     {
                         level.rows[i].bricks[j].position.x = boundries[1].x + (stepX * j);
-                        level.rows[i].bricks[j].position.y = boundries[1].y + (stepY * i); 
+                        level.rows[i].bricks[j].position.y = boundries[1].y + (stepY * i);
+                        level.rows[i].bricks[j].brickIndexName = i.ToString() + " " + j.ToString();
                     }
                     else
                     {
@@ -40,6 +41,7 @@ namespace Present
                 }
             }
             //positions Handlled;
+            //name handled;
         }
 
         public void UpdateIt()
