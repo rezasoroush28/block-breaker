@@ -8,9 +8,15 @@ namespace Present
     
     public class BlocksPresenter : IObsserver
     {
-        public LevelModel level;
-
+        private LevelModel _level;
+        private BallModel _ball;
         public Vector2[] boundries;
+
+        public BlocksPresenter(LevelModel level, BallModel ball)
+        {
+            this._level = level;
+            this._ball = ball;
+        }
         //public List<Dictionary<GameObject, Vector2>> bricksList;
         
         
@@ -18,21 +24,21 @@ namespace Present
 
         public void ReturnTheBricks()
         {
-            boundries = new[] { level.boundries[1], level.boundries[2] };
+            boundries = new[] { _level.boundries[1], _level.boundries[2] };
             var stepX = -(boundries[0].x - boundries[1].x);
             var stepY = -(boundries[0].y - boundries[1].y);
-            var rows = level.rows;
+            var rows = _level.rows;
             //var cul = level.rows[0];
 
             for (int i = 0; i < rows.Length; i++)
             {
                 for (int j = 0; j < rows[i].bricks.Length; j++)
                 {
-                    if (level.rows[i].bricks[j].brickGameObject != null)
+                    if (_level.rows[i].bricks[j].brickGameObject != null)
                     {
-                        level.rows[i].bricks[j].position.x = boundries[1].x + (stepX * j);
-                        level.rows[i].bricks[j].position.y = boundries[1].y + (stepY * i);
-                        level.rows[i].bricks[j].brickIndexName = i.ToString() + " " + j.ToString();
+                        _level.rows[i].bricks[j].position.x = boundries[1].x + (stepX * j);
+                        _level.rows[i].bricks[j].position.y = boundries[1].y + (stepY * i);
+                        _level.rows[i].bricks[j].brickIndexName = i.ToString() + " " + j.ToString();
                     }
                     else
                     {

@@ -10,8 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 36f865f406cea524bacdd78f3ddc40a5, type: 3}
-  m_Name: Brick1Point
+  m_Name: BrickPrefab
   m_EditorClassIdentifier: 
-  brickGameObject: {fileID: 7076524192448766077, guid: f98191c00d966f340a47800dd81c23df, type: 3}
-  brickPoint: 1
+  brickGameObject: {fileID: 0}
+  brickPoint: 0
   position: {x: 0, y: 0}
+  brickIndexName: 
