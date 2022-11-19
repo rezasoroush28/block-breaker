@@ -1,4 +1,5 @@
 using System;
+using Present;
 using UnityEngine;
 
 namespace data
@@ -10,12 +11,14 @@ namespace data
         public HoverModel hoverData;
         private BallHandler _ball;
         private HoverHandler _hover;
+        private BlocksPresenter _block;
         
 
         private void Awake()
         {
             _ball = new BallHandler(ballData);
             _hover = new HoverHandler(hoverData);
+            _block = new BlocksPresenter(level, _ball, _hover, this);
         }
     }
 }
