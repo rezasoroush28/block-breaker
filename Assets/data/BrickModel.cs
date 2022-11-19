@@ -11,7 +11,7 @@ namespace data
     {
     // Start is called before the first frame update
     public GameObject brickGameObject;
-    [SerializeField] private int brickPoint;
+    public int brickPoint;
     public List<IObsserver> obsservers;
     public Vector2 position;
     public string brickIndexName;
@@ -33,12 +33,16 @@ namespace data
 
     public void Remove(IObsserver obsserver)
     {
-        
+        obsservers.Remove(obsserver);
     }
 
     public void Notify()
     {
-        
+        var obsArray = obsservers.ToArray();
+        foreach (var obs in obsArray)
+        {
+            obs.UpdateIt();
+        }
     }
     }
 }

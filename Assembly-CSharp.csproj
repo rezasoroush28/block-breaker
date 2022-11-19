@@ -71,6 +71,8 @@
      <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModuleAudio.cs" />
      <Compile Include="Assets\data\HoverModel.cs" />
      <Compile Include="Assets\Interfaces\ISubject.cs" />
+     <Compile Include="Assets\data\Viewer.cs" />
+     <Compile Include="Assets\data\BallHandler.cs" />
      <None Include="Assets\Demigiant\readme_DOTweenPro.txt" />
      <None Include="Assets\Demigiant\DOTweenPro\readme.txt" />
      <None Include="Assets\Demigiant\DemiLib\Core\DemiLib.xml" />
