@@ -16,6 +16,11 @@ namespace data
     public Vector2 position;
     public string brickIndexName;
 
+    public BrickModel(List<IObsserver> obsservers)
+    {
+        this.obsservers = obsservers;
+    }
+
     public int ReturnTHePoint(GameObject brickgo)
     {
         return brickPoint;
@@ -23,7 +28,7 @@ namespace data
 
     public void Add(IObsserver obsserver)
     {
-        
+        obsservers.Add(obsserver);
     }
 
     public void Remove(IObsserver obsserver)

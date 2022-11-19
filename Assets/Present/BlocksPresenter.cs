@@ -20,11 +20,16 @@ namespace Present
             _hover = hover;
         }
         //public List<Dictionary<GameObject, Vector2>> bricksList;
-        
-        
-        
 
-        public void ReturnTheBricks()
+
+        public List<IObsserver> AddObsserverToEachBlock(BrickModel block)
+        {
+            block.Add(_ball);
+            block.Add(_hover);
+            block.Add(this);
+        }
+
+        public void PositionTheBlocks()
         {
             boundries = new[] { _level.boundries[1], _level.boundries[2] };
             var stepX = -(boundries[0].x - boundries[1].x);
@@ -38,9 +43,12 @@ namespace Present
                 {
                     if (_level.rows[i].bricks[j].brickGameObject != null)
                     {
-                        _level.rows[i].bricks[j].position.x = boundries[1].x + (stepX * j);
-                        _level.rows[i].bricks[j].position.y = boundries[1].y + (stepY * i);
-                        _level.rows[i].bricks[j].brickIndexName = i.ToString() + " " + j.ToString();
+                        var block = ScriptableObject.CreateInstance<BrickModel>();
+                        AddObsserverToEachBlock(block);
+                        block.position.x = boundries[1].x + (stepX * j);
+                        block.position.y = boundries[1].y + (stepY * i);
+                        block.brickIndexName = i.ToString() + " " + j.ToString();
+                        _level.rows[i].bricks[j] = block;
                     }
                     else
                     {
