@@ -73,6 +73,7 @@
      <Compile Include="Assets\Interfaces\ISubject.cs" />
      <Compile Include="Assets\data\Viewer.cs" />
      <Compile Include="Assets\data\BallHandler.cs" />
+     <Compile Include="Assets\data\HoverHandler.cs" />
      <None Include="Assets\Demigiant\readme_DOTweenPro.txt" />
      <None Include="Assets\Demigiant\DOTweenPro\readme.txt" />
      <None Include="Assets\Demigiant\DemiLib\Core\DemiLib.xml" />

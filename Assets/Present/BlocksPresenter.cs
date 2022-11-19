@@ -10,13 +10,13 @@ namespace Present
     {
         private LevelModel _level;
         private BallHandler _ball;
-        private HoverModel _hover;
+        private HoverHandler _hover;
         private Viewer _viewer;
         public Vector2[] boundries;
         public List<BrickModel> blocks;
         public int countedBlocks = 0;
         public int gainedPoints;
-        public BlocksPresenter(LevelModel level, BallHandler ball, HoverModel hover, Viewer viewer)
+        public BlocksPresenter(LevelModel level, BallHandler ball, HoverHandler hover, Viewer viewer)
         {
             this._level = level;
             this._ball = ball;

@@ -7,11 +7,15 @@ namespace data
     {
         public LevelModel level;
         public BallModel ballData;
-        public HoverModel hover;
+        public HoverModel hoverData;
         private BallHandler _ball;
+        private HoverHandler _hover;
+        
+
         private void Awake()
         {
             _ball = new BallHandler(ballData);
+            _hover = new HoverHandler(hoverData);
         }
     }
 }

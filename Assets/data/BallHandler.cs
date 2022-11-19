@@ -18,11 +18,5 @@ namespace data
         {
         
         }
-    };
-
-    class Program
-    {
-    
-    
     }
 }
