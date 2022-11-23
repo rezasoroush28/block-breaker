@@ -11,7 +11,7 @@ namespace data
             this._hoverData = hoverData;
         }
 
-        public void UpdateIt()
+        public void UpdateIt(BrickModel notifyingBlock)
         {
         
         }

@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Interfaces;
 using JetBrains.Annotations;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace data
 {
@@ -12,7 +13,7 @@ namespace data
     // Start is called before the first frame update
     public GameObject brickGameObject;
 
-    [SerializeField] private BrickModelHandller handler;
+    [FormerlySerializedAs("handler")] [SerializeField] private BrickModelAttacher attacher;
     public int brickPoint;
     public List<IObsserver> obsservers;
     public Vector2 position;
@@ -21,7 +22,7 @@ namespace data
     
     public void AttachGameObjectsToModels()
     {
-        handler.thisModel = this;
+        attacher.thisModel = this;
     }
     
     public BrickModel(List<IObsserver> obsservers)

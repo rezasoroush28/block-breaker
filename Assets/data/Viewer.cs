@@ -6,15 +6,15 @@ namespace data
 {
     public class Viewer : MonoBehaviour
     {
+        public Transform parent;
         public LevelModel level;
         public BallModel ballData;
         public HoverModel hoverData;
         private BallHandler _ball;
         private HoverHandler _hover;
         private BlocksPresenter _block;
-        
 
-        private void Awake()
+        public void GenerateWholeLevel()
         {
             _ball = new BallHandler(ballData);
             _hover = new HoverHandler(hoverData);
@@ -23,17 +23,16 @@ namespace data
 
             foreach (var block in _block.blocks)
             {
-                
-                var gameBlock = new GameObject();
-                gameBlock = block.brickGameObject;
-                gameBlock.transform.position = block.position;
-                
+                Vector3 pose = new Vector3(block.position.x, block.position.y, 0f);
+                Instantiate(block.brickGameObject, pose,block.brickGameObject.transform.rotation,parent);
             }
         }
-
-        private void OnTriggerEnter(Collider other)
+        private void Awake()
         {
-            
+            GenerateWholeLevel();
         }
+        
+
+        
     }
 }

@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace data
 {
-    public class BrickModelHandller : MonoBehaviour
+    public class BrickModelAttacher : MonoBehaviour
     {
         public BrickModel thisModel;
     }

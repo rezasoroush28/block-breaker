@@ -14,7 +14,7 @@ namespace data
             _ball = ball;
         }
 
-        public void UpdateIt()
+        public void UpdateIt(BrickModel notifyingBlock)
         {
         
         }

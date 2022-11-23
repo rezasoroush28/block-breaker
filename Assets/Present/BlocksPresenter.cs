@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using data;
 using Interfaces;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 namespace Present
 {
@@ -69,11 +70,12 @@ namespace Present
                         AddObsserverToEachBlock(block);
                         block.brickPoint = _level.rows[i].bricks[j].brickPoint;
                         block.brickGameObject = _level.rows[i].bricks[j].brickGameObject;
+                        block.brickIndexName = i.ToString() + " " + j.ToString();
+                        block.brickGameObject.name = block.brickIndexName; 
                         block.AttachGameObjectsToModels();
                         block.position.x = boundries[1].x + (stepX * j);
                         block.position.y = boundries[1].y + (stepY * i);
-                        block.brickIndexName = i.ToString() + " " + j.ToString();
-                       blocks.Add(block);
+                        blocks.Add(block);
                        _level.rows[i].bricks[j] = block;
                         
                         countedBlocks++; }
@@ -87,10 +89,22 @@ namespace Present
             //name handled;
         }
 
-        public void UpdateIt(ISubject notifyingBlock)
+        public void UpdateIt(BrickModel notifyingBlock)
         {
             countedBlocks--;
             gainedPoints++;
+            DestroyTheBlock(notifyingBlock.brickIndexName);
+        }
+
+        public void DestroyTheBlock(string blockName)
+        {
+            foreach (var block in blocks)
+            {
+                if (block.brickIndexName == blockName)
+                {
+                    Object.Destroy(block.brickGameObject);
+                }
+            }
         }
 
         
