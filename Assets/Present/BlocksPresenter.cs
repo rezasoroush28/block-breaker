@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using data;
 using Interfaces;
@@ -33,6 +34,23 @@ namespace Present
             block.Add(this);
         }
 
+        public void FindTheCollider(GameObject collidedBlock)
+        {
+            
+        }
+
+        public void FindTheBlock(String collidedBlockName, List<BrickModel> remainedBlocks)
+        {
+            foreach (var inCheckBlock in remainedBlocks)
+            {
+                if (inCheckBlock.brickIndexName == collidedBlockName)
+                {
+                    inCheckBlock.Notify();
+                    remainedBlocks.Remove(inCheckBlock);
+                    
+                }
+            }
+        }
         public void PositionTheBlocks()
         {
             boundries = new[] { _level.boundries[1], _level.boundries[2] };
@@ -51,13 +69,14 @@ namespace Present
                         AddObsserverToEachBlock(block);
                         block.brickPoint = _level.rows[i].bricks[j].brickPoint;
                         block.brickGameObject = _level.rows[i].bricks[j].brickGameObject;
+                        block.AttachGameObjectsToModels();
                         block.position.x = boundries[1].x + (stepX * j);
                         block.position.y = boundries[1].y + (stepY * i);
                         block.brickIndexName = i.ToString() + " " + j.ToString();
-                        _level.rows[i].bricks[j] = block;
-                        blocks.Add(block);
-                        countedBlocks++;
-                    }
+                       blocks.Add(block);
+                       _level.rows[i].bricks[j] = block;
+                        
+                        countedBlocks++; }
                     else
                     {
                          continue;
@@ -68,11 +87,13 @@ namespace Present
             //name handled;
         }
 
-        public void UpdateIt()
+        public void UpdateIt(ISubject notifyingBlock)
         {
             countedBlocks--;
             gainedPoints++;
         }
+
+        
     }
     
     

@@ -2,6 +2,6 @@ namespace Interfaces
 {
     public interface IObsserver
     {
-        public void UpdateIt();
+        public void UpdateIt(ISubject whoIsCalling);
     }
 }

@@ -19,6 +19,21 @@ namespace data
             _ball = new BallHandler(ballData);
             _hover = new HoverHandler(hoverData);
             _block = new BlocksPresenter(level, _ball, _hover, this);
+            _block.PositionTheBlocks();
+
+            foreach (var block in _block.blocks)
+            {
+                
+                var gameBlock = new GameObject();
+                gameBlock = block.brickGameObject;
+                gameBlock.transform.position = block.position;
+                
+            }
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            
         }
     }
 }

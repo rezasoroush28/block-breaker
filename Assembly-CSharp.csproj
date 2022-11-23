@@ -74,6 +74,8 @@
      <Compile Include="Assets\data\Viewer.cs" />
      <Compile Include="Assets\data\BallHandler.cs" />
      <Compile Include="Assets\data\HoverHandler.cs" />
+     <Compile Include="Assets\data\BallCollisionHandler.cs" />
+     <Compile Include="Assets\data\BrickModelHandller.cs" />
      <None Include="Assets\Demigiant\readme_DOTweenPro.txt" />
      <None Include="Assets\Demigiant\DOTweenPro\readme.txt" />
      <None Include="Assets\Demigiant\DemiLib\Core\DemiLib.xml" />
