@@ -13,7 +13,7 @@ namespace data
     // Start is called before the first frame update
     public GameObject brickGameObject;
 
-    [FormerlySerializedAs("handler")] [SerializeField] private BrickModelAttacher attacher;
+    [SerializeField] private BrickModelAttacher attacher;
     public int brickPoint;
     public List<IObsserver> obsservers;
     public Vector2 position;
@@ -29,7 +29,7 @@ namespace data
     {
         this.obsservers = obsservers;
     }
-    public void Add(IObsserver obsserver)
+    public void AddIt(IObsserver obsserver)
     {
         obsservers.Add(obsserver);
     }

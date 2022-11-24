@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fccdf7a559c9c7a4bb0d37b262bb8562, type: 3}
   m_Name: BallPrefab
   m_EditorClassIdentifier: 
-  ballSample: {fileID: 0}
+  handler: {fileID: 7220404870273520299, guid: 6a3510c7bec228948b258e54dfe52e47, type: 3}
+  ballSample: {fileID: 7895327910874691691, guid: 6a3510c7bec228948b258e54dfe52e47, type: 3}
   velocity: 0

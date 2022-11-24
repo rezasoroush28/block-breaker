@@ -9,8 +9,8 @@ namespace data
         
         private void OnTriggerEnter(Collider other)
         {
-            var handler = other.GetComponent<BrickModelAttacher>();
-            handler.thisModel.Notify();
+            var attacher = other.GetComponent<BrickModelAttacher>();
+            attacher.thisModel.Notify();
         }
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace data
 {
-    public class Viewer : MonoBehaviour
+    public class Viewer : MonoBehaviour 
     {
         public Transform parent;
         public LevelModel level;

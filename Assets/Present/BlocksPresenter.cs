@@ -30,15 +30,12 @@ namespace Present
 
         public void AddObsserverToEachBlock(BrickModel block)
         {
-            block.Add(_ball);
-            block.Add(_hover);
-            block.Add(this);
+            block.AddIt(_ball);
+            block.AddIt(_hover);
+            block.AddIt(this);
         }
 
-        public void FindTheCollider(GameObject collidedBlock)
-        {
-            
-        }
+        
 
         public void FindTheBlock(String collidedBlockName, List<BrickModel> remainedBlocks)
         {
@@ -54,7 +51,7 @@ namespace Present
         }
         public void PositionTheBlocks()
         {
-            boundries = new[] { _level.boundries[1], _level.boundries[2] };
+            boundries = new[] { _level.boundries[0], _level.boundries[0] };
             var stepX = -(boundries[0].x - boundries[1].x);
             var stepY = -(boundries[0].y - boundries[1].y);
             var rows = _level.rows;
@@ -64,7 +61,7 @@ namespace Present
             {
                 for (int j = 0; j < rows[i].bricks.Length; j++)
                 {
-                    if (_level.rows[i].bricks[j].brickGameObject != null)
+                    if (_level.rows[i].bricks[j] != null)
                     {
                         var block = ScriptableObject.CreateInstance<BrickModel>();
                         AddObsserverToEachBlock(block);
@@ -73,8 +70,8 @@ namespace Present
                         block.brickIndexName = i.ToString() + " " + j.ToString();
                         block.brickGameObject.name = block.brickIndexName; 
                         block.AttachGameObjectsToModels();
-                        block.position.x = boundries[1].x + (stepX * j);
-                        block.position.y = boundries[1].y + (stepY * i);
+                        block.position.x = boundries[0].x + (stepX * j);
+                        block.position.y = boundries[0].y + (stepY * i);
                         blocks.Add(block);
                        _level.rows[i].bricks[j] = block;
                         
