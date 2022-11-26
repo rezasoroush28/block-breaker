@@ -4,6 +4,6 @@ namespace data
 {
     public class BrickModelAttacher : MonoBehaviour
     {
-        public BrickModel thisModel;
+        public BlockPresenter thisModel;
     }
 }

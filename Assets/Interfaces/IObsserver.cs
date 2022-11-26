@@ -4,6 +4,6 @@ namespace Interfaces
 {
     public interface IObsserver
     {
-        public void UpdateIt(BrickModel whoIsCalling);
+        public void UpdateIt(ISubject whoIsCalling);
     }
 }

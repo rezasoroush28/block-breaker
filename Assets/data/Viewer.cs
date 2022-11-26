@@ -12,13 +12,13 @@ namespace data
         public HoverModel hoverData;
         private BallHandler _ball;
         private HoverHandler _hover;
-        private BlocksPresenter _block;
+        private BlocksHandler _block;
 
         public void GenerateWholeLevel()
         {
             _ball = new BallHandler(ballData);
             _hover = new HoverHandler(hoverData);
-            _block = new BlocksPresenter(level, _ball, _hover, this);
+            _block = new BlocksHandler(level, _ball, _hover, this);
             _block.PositionTheBlocks();
 
             foreach (var block in _block.blocks)

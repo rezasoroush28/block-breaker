@@ -221,7 +221,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &188377321
 RectTransform:
   m_ObjectHideFlags: 0
@@ -256,7 +256,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &327596125
 RectTransform:
   m_ObjectHideFlags: 0
@@ -483,7 +483,7 @@ MonoBehaviour:
   parent: {fileID: 1029580823}
   level: {fileID: 11400000, guid: ece804a66b24ae6478208310042b7401, type: 2}
   ballData: {fileID: 11400000, guid: a322a394af07ba847bac7c85b9768e60, type: 2}
-  hoverData: {fileID: 0}
+  hoverData: {fileID: 11400000, guid: 8ef19f6251892674bb2bbb085dc23e9b, type: 2}
 --- !u!4 &1425755364
 Transform:
   m_ObjectHideFlags: 0
@@ -515,7 +515,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1831251888
 RectTransform:
   m_ObjectHideFlags: 0
