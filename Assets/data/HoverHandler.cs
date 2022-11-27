@@ -10,10 +10,11 @@ namespace data
         {
             this._hoverData = hoverData;
         }
-
-        public void UpdateIt(BrickModel notifyingBlock)
-        {
         
+
+        public void UpdateIt(BlockPresenter whoIsCalling)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

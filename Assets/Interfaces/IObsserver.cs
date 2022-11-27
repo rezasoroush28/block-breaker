@@ -4,6 +4,6 @@ namespace Interfaces
 {
     public interface IObsserver
     {
-        public void UpdateIt(ISubject whoIsCalling);
+        public void UpdateIt(BlockPresenter whoIsCalling);
     }
 }

@@ -17,7 +17,25 @@ MonoBehaviour:
     - {fileID: 0}
     - {fileID: 0}
     - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
     - {fileID: 11400000, guid: c63fa3e8d539e6a46a2d1c823f3ff3e5, type: 2}
+    - {fileID: 0}
+    - {fileID: 0}
+  - bricks:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 11400000, guid: c63fa3e8d539e6a46a2d1c823f3ff3e5, type: 2}
+    - {fileID: 0}
+    - {fileID: 0}
+  - bricks:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
     - {fileID: 0}
     - {fileID: 0}
     - {fileID: 0}
@@ -25,30 +43,12 @@ MonoBehaviour:
   - bricks:
     - {fileID: 0}
     - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 11400000, guid: c63fa3e8d539e6a46a2d1c823f3ff3e5, type: 2}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-  - bricks:
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 11400000, guid: c63fa3e8d539e6a46a2d1c823f3ff3e5, type: 2}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-  - bricks:
-    - {fileID: 0}
     - {fileID: 11400000, guid: c63fa3e8d539e6a46a2d1c823f3ff3e5, type: 2}
     - {fileID: 0}
     - {fileID: 0}
     - {fileID: 0}
     - {fileID: 0}
     - {fileID: 0}
-    - {fileID: 11400000, guid: c63fa3e8d539e6a46a2d1c823f3ff3e5, type: 2}
   boundries:
   - {x: -450, y: 150}
   - {x: 408.98, y: -150}

@@ -12,8 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36f865f406cea524bacdd78f3ddc40a5, type: 3}
   m_Name: BrickPrefab
   m_EditorClassIdentifier: 
-  brickGameObject: {fileID: 9098558099760431260, guid: f98191c00d966f340a47800dd81c23df, type: 3}
   attacher: {fileID: 8221345921176378977, guid: f98191c00d966f340a47800dd81c23df, type: 3}
-  brickPoint: 0
-  position: {x: 0, y: 0}
-  brickIndexName: 
+  brickGameObject: {fileID: 9098558099760431260, guid: f98191c00d966f340a47800dd81c23df, type: 3}
+  brickPoint: 3

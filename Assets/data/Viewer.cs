@@ -21,15 +21,17 @@ namespace data
             _block = new BlocksHandler(level, _ball, _hover, this);
             _block.PositionTheBlocks();
 
-            foreach (var block in _block.blocks)
-            {
-                Vector3 pose = new Vector3(block.position.x, block.position.y, 0f);
-                Instantiate(block.brickGameObject, pose,block.brickGameObject.transform.rotation,parent);
-            }
+            
         }
         private void Awake()
         {
             GenerateWholeLevel();
+        }
+
+        public void SpawnTheBlock(GameObject blockGameObject , Vector2 pose)
+        {
+            var position = new Vector3(pose.x, pose.y, 0f);
+            Instantiate(blockGameObject, position,blockGameObject.transform.rotation,parent);
         }
         
 

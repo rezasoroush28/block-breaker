@@ -57,6 +57,7 @@
      <Compile Include="Assets\data\HoverHandler.cs" />
      <Compile Include="Assets\data\Viewer.cs" />
      <Compile Include="Assets\data\BallModel.cs" />
+     <Compile Include="Assets\data\BlockPresenter.cs" />
      <Compile Include="Assets\Scenes\for start scene\StartButtonManager.cs" />
      <Compile Include="Assets\data\LevelModel.cs" />
      <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModulePhysics2D.cs" />
@@ -65,7 +66,7 @@
      <Compile Include="Assets\data\BrickModel.cs" />
      <Compile Include="Assets\Interfaces\IObsserver.cs" />
      <Compile Include="Assets\data\BallHandler.cs" />
-     <Compile Include="Assets\data\BrickModelAttacher.cs" />
+     <Compile Include="Assets\data\PresenterAttacher.cs" />
      <Compile Include="Assets\Present\BlocksHandler.cs" />
      <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModulePhysics.cs" />
      <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModuleUnityVersion.cs" />
@@ -76,7 +77,6 @@
      <Compile Include="Assets\data\HoverModel.cs" />
      <Compile Include="Assets\Interfaces\ISubject.cs" />
      <Compile Include="Assets\data\BallCollisionHandler.cs" />
-     <Compile Include="Assets\data\BlockPresenter.cs" />
      <None Include="Assets\Demigiant\readme_DOTweenPro.txt" />
      <None Include="Assets\Demigiant\DOTweenPro\readme.txt" />
      <None Include="Assets\Demigiant\DemiLib\Core\DemiLib.xml" />

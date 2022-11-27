@@ -18,5 +18,10 @@ namespace data
         {
         
         }
+
+        public void UpdateIt(BlockPresenter whoIsCalling)
+        {
+            
+        }
     }
 }

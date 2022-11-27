@@ -6,15 +6,17 @@ namespace data
 {
     public class BlockPresenter : ISubject
     {
-        private GameObject _brickGameObject;
-        public BrickModelAttacher attacher;
+        public GameObject blockGameObject;
+        private int _point;
+        public PresenterAttacher attacher;
         public List<IObsserver> obsservers;
-        public string brickIndexName;
+        public string blockIndexName;
+        public int blockPoint;
         public Vector2 position;
-        public BlockPresenter(GameObject brickGameObject, BrickModelAttacher attacher)
+        public BlockPresenter(GameObject blockGameObject, int point)
         {
-            _brickGameObject = brickGameObject;
-            
+            this.blockGameObject = blockGameObject;
+            this._point = point;
         }
 
         public void AddIt(IObsserver obsserver)
@@ -37,7 +39,7 @@ namespace data
         
         public void AttachGameObjectsToPresenter()
         {
-            attacher.thisModel = this;
+            attacher.thisPresenter = this;
         }
     }
 }
