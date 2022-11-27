@@ -28,10 +28,11 @@ namespace data
             GenerateWholeLevel();
         }
 
-        public void SpawnTheBlock(GameObject blockGameObject , Vector2 pose)
+        public GameObject SpawnTheBlock(GameObject blockGameObject , Vector2 pose)
         {
             var position = new Vector3(pose.x, pose.y, 0f);
-            Instantiate(blockGameObject, position,blockGameObject.transform.rotation,parent);
+            var go = Instantiate(blockGameObject, position,blockGameObject.transform.rotation,parent);
+            return go;
         }
         
 

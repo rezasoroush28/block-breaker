@@ -15,7 +15,7 @@ namespace Present
         private HoverHandler _hover;
         private Viewer _viewer;
         public Vector2[] boundries;
-        public List<BlockPresenter> blocks;
+        public List<BlockPresenter> AllBlockPresenters;
         public int countedBlocks = 0;
         public int gainedPoints;
         public BlocksHandler(LevelModel level, BallHandler ball, HoverHandler hover, Viewer viewer)
@@ -56,7 +56,7 @@ namespace Present
             var stepX = -(boundries[0].x - boundries[1].x)/_level.rows.Length;
             var stepY = -(boundries[0].y - boundries[1].y) / _level.rows[1].bricks.Length;
             var rows = _level.rows;
-            blocks = new List<BlockPresenter>();
+            AllBlockPresenters = new List<BlockPresenter>();
             //var cul = level.rows[0];
 
             for (int i = 0; i < rows.Length; i++)
@@ -69,19 +69,20 @@ namespace Present
                         var blockPresenter = new BlockPresenter(new GameObject(),new int());
                         blockPresenter.obsservers = new List<IObsserver>();
                         AddObsserverToEachBlock(blockPresenter);
-                        var tempModelName = blockData.brickGameObject.name;
+                        //var tempModelName = blockData.brickGameObject.name;
                         //to have refrence to the model gameobject name;
                         
                         blockPresenter.blockPoint = blockData.brickPoint;
                         blockPresenter.blockGameObject = blockData.brickGameObject;
-                        blockPresenter.attacher = blockData.attacher;
-                        blockPresenter.blockGameObject.name= i.ToString() + " " + j.ToString();
-                        blockPresenter.AttachGameObjectsToPresenter();
+                        blockPresenter.HandleTheAttacher(blockData);
+                        
                         blockPresenter.position = new Vector2();
                         blockPresenter.position.x = boundries[0].x  + (stepX * j);
                         blockPresenter.position.y = boundries[0].y + (stepY * i);
-                        _viewer.SpawnTheBlock(blockPresenter.blockGameObject , blockPresenter.position);
+                        var block =_viewer.SpawnTheBlock(blockPresenter.blockGameObject , blockPresenter.position);
+                        block.name=i.ToString() + " " + j.ToString();
                         countedBlocks++;
+                        AllBlockPresenters.Add(blockPresenter);
                     }
                     else
                     {
@@ -102,7 +103,7 @@ namespace Present
 
         public void DestroyTheBlock(string blockName)
         {
-            foreach (var block in blocks)
+            foreach (var block in AllBlockPresenters)
             {
                 if (block.blockIndexName == blockName)
                 {
@@ -110,6 +111,8 @@ namespace Present
                 }
             }
         }
+
+        
         
     }
     

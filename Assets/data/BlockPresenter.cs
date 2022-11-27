@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace data
 {
-    public class BlockPresenter : ISubject
+    public class BlockPresenter :  ISubject
     {
         public GameObject blockGameObject;
         private int _point;
@@ -36,10 +36,10 @@ namespace data
                 obs.UpdateIt(this);  
             }
         }
-        
-        public void AttachGameObjectsToPresenter()
+
+        public void HandleTheAttacher(BrickModel data)
         {
-            attacher.thisPresenter = this;
+            data.attacher.thisPresenter = this;
         }
     }
 }

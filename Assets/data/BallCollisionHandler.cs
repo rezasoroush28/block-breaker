@@ -9,6 +9,7 @@ namespace data
         
         private void OnTriggerEnter(Collider other)
         {
+
             var attacher = other.GetComponent<PresenterAttacher>();
             attacher.thisPresenter.Notify();
         }
