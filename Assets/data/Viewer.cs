@@ -21,7 +21,7 @@ namespace data
         public void GenerateWholeLevel()
         {
             _ball = new BallHandler(normalBallData , fireBallData , freezBallData , this);
-            _hover = new HoverHandler(hoverData);
+            _hover = new HoverHandler(hoverData,this);
             _block = new BlocksHandler(level, _ball, _hover, this);
             _block.PositionTheBlocks();
             
@@ -47,6 +47,12 @@ namespace data
             var pose = ballGameObject.transform.position;
             var go = Instantiate(ballGameObject, ballPose,ballGameObject.transform.rotation,parent);
             go.GetComponent<Rigidbody2D>().velocity = velocity;
+        }
+
+        public void SpawnTheHover(GameObject hoverGameObject)
+        {
+            var pose = ballPose - new Vector2(0f, -50f);
+            var go = Instantiate(hoverGameObject, pose,hoverGameObject.transform.rotation,parent);
         }
         
 
