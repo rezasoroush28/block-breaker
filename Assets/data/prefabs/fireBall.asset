@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fccdf7a559c9c7a4bb0d37b262bb8562, type: 3}
-  m_Name: BallPrefab
+  m_Name: fireBall
   m_EditorClassIdentifier: 
-  handler: {fileID: 7220404870273520299, guid: 6a3510c7bec228948b258e54dfe52e47, type: 3}
-  ballSample: {fileID: 7895327910874691691, guid: 6a3510c7bec228948b258e54dfe52e47, type: 3}
+  handler: {fileID: 3469640178202333310, guid: f402538da2d5430439b14fb888f8db79, type: 3}
+  ballSample: {fileID: 4144281726209931966, guid: f402538da2d5430439b14fb888f8db79, type: 3}
   velocity: 0

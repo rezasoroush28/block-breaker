@@ -12,6 +12,10 @@ namespace data
 
             var attacher = other.GetComponent<PresenterAttacher>();
             attacher.thisPresenter.Notify();
+            var pelocity = GetComponent<Rigidbody2D>().velocity;
+            var normal = transform.position - other.transform.position;
+            var nelocity = Vector2.Reflect(pelocity, normal);
+            transform.GetComponent<Rigidbody2D>().velocity = nelocity;
         }
     }
 }

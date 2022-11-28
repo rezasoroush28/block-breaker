@@ -53,8 +53,8 @@ namespace Present
         {
             
             boundries = new[] { _level.boundries[0], _level.boundries[1] };
-            var stepX = -(boundries[0].x - boundries[1].x)/_level.rows.Length;
-            var stepY = -(boundries[0].y - boundries[1].y) / _level.rows[1].bricks.Length;
+            var stepX = -(boundries[0].x - boundries[1].x)/_level.rows[1].bricks.Length;
+            var stepY = -(boundries[0].y - boundries[1].y) / _level.rows.Length;
             var rows = _level.rows;
             AllBlockPresenters = new List<BlockPresenter>();
             //var cul = level.rows[0];

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rows:
   - bricks:
-    - {fileID: 0}
+    - {fileID: 11400000, guid: c63fa3e8d539e6a46a2d1c823f3ff3e5, type: 2}
     - {fileID: 0}
     - {fileID: 0}
     - {fileID: 0}
@@ -48,9 +48,9 @@ MonoBehaviour:
     - {fileID: 0}
     - {fileID: 0}
     - {fileID: 0}
-    - {fileID: 0}
+    - {fileID: 11400000, guid: c63fa3e8d539e6a46a2d1c823f3ff3e5, type: 2}
   boundries:
-  - {x: -450, y: 150}
-  - {x: 408.98, y: -150}
+  - {x: 116.25, y: 354.75}
+  - {x: 1016.21, y: 54.75}
   comment: points for every stars
   pointCount: 0000000000000000
