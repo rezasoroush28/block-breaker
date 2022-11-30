@@ -7,7 +7,7 @@ namespace data
     {
         public Viewer viewer;
         
-        private void OnTriggerEnter(Collider other)
+        private void OnTriggerEnter2D(Collider2D other)
         {
             if (other.CompareTag($"block"))
             {
@@ -15,8 +15,8 @@ namespace data
                 attacher.thisPresenter.Notify();
             }
 
-            var collidPose = other.ClosestPointOnBounds(transform.position);
-            var normal = collidPose - transform.position;
+            var collidPose = other.ClosestPoint(transform.position);
+            var normal = collidPose - (Vector2)transform.position;
             normal = new Vector2(normal.x, normal.y);
             var velocity = transform.GetComponent<Rigidbody2D>().velocity; 
             transform.GetComponent<Rigidbody2D>().velocity = Mirror(velocity, normal);

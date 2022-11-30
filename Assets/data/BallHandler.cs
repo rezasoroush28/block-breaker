@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using data.prefabs.blockModels;
 using Interfaces;
 using UnityEngine;
 
@@ -21,7 +22,7 @@ namespace data
 
         public void GenerateTheNormalBall()
         {
-            _viewer.SpawnTheBall(_normalBallData.ballSample , GenerateAVelocity()*_fireBallData.velocity);
+            _viewer.SpawnTheBall(_normalBallData.ballSample , GenerateAVelocity()*_normalBallData.velocity);
         }
 
         public void GenerateFireBall()

@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   handler: {fileID: 7220404870273520299, guid: 6a3510c7bec228948b258e54dfe52e47, type: 3}
   ballSample: {fileID: 7895327910874691691, guid: 6a3510c7bec228948b258e54dfe52e47, type: 3}
-  velocity: 20
+  velocity: 200

@@ -39,6 +39,7 @@ namespace data
         {
             var position = new Vector3(pose.x, pose.y, 0f);
             var go = Instantiate(blockGameObject, position,blockGameObject.transform.rotation,parent);
+            var attacher = Instantiate()
             return go;
         }
 

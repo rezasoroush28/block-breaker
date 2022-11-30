@@ -1,24 +1,35 @@
+using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace data
 {
     [CreateAssetMenu(fileName = "LevelModel" , order = 1)]
     public class LevelModel : ScriptableObject
     {
+        [FormerlySerializedAs("FireBlock")] public BrickModel fireBlock;
+        public BrickModel normalBlock;
+        public BrickModel freezBlock;
+
+
+        
+        public enum BlockCategories
+        {
+            None,
+            Normal,
+            Fire,
+            Freez
+            
+        }
         [System.Serializable]
         public struct RowData
         {
-            public BrickModel[] bricks;
-        
+            public BlockCategories[] bricks ;
         }
 
-        private struct BricksLocations
-        {
-            public struct MyStruct
-            {
-                
-            }
-        }
+        
+
+
         public RowData[] rows ;
         public Vector2[] boundries = new Vector2[2];
         //to find boundries;

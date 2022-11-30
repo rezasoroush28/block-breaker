@@ -12,43 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee15ea7fc19b4154db10b719d5656158, type: 3}
   m_Name: LevelModel
   m_EditorClassIdentifier: 
+  basicBlockModels:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   rows:
-  - bricks:
-    - {fileID: 11400000, guid: c63fa3e8d539e6a46a2d1c823f3ff3e5, type: 2}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 11400000, guid: c63fa3e8d539e6a46a2d1c823f3ff3e5, type: 2}
-    - {fileID: 0}
-    - {fileID: 0}
-  - bricks:
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 11400000, guid: c63fa3e8d539e6a46a2d1c823f3ff3e5, type: 2}
-    - {fileID: 0}
-    - {fileID: 0}
-  - bricks:
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-  - bricks:
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 11400000, guid: c63fa3e8d539e6a46a2d1c823f3ff3e5, type: 2}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 11400000, guid: c63fa3e8d539e6a46a2d1c823f3ff3e5, type: 2}
+  - bricks: 0000000000000000000000000000000000000000000000000000000000000000
+  - bricks: 0000000000000000000000000000000000000000000000000000000000000000
+  - bricks: 0000000000000000000000000000000000000000000000000000000000000000
+  - bricks: 0000000000000000000000000000000000000000000000000000000000000000
   boundries:
   - {x: 116.25, y: 354.75}
   - {x: 1016.21, y: 54.75}

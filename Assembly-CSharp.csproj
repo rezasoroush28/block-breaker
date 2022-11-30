@@ -57,7 +57,7 @@
      <Compile Include="Assets\data\HoverHandler.cs" />
      <Compile Include="Assets\data\Viewer.cs" />
      <Compile Include="Assets\data\BallModel.cs" />
-     <Compile Include="Assets\data\BlockPresenter.cs" />
+     <Compile Include="Assets\data\prefabs\blockModels\BlockPresenter.cs" />
      <Compile Include="Assets\Scenes\for start scene\StartButtonManager.cs" />
      <Compile Include="Assets\data\LevelModel.cs" />
      <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModulePhysics2D.cs" />
@@ -67,7 +67,7 @@
      <Compile Include="Assets\Interfaces\IObsserver.cs" />
      <Compile Include="Assets\data\BallHandler.cs" />
      <Compile Include="Assets\data\PresenterAttacher.cs" />
-     <Compile Include="Assets\Present\BlocksHandler.cs" />
+     <Compile Include="Assets\data\prefabs\blockModels\BlocksHandler.cs" />
      <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModulePhysics.cs" />
      <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModuleUnityVersion.cs" />
      <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModuleSprite.cs" />
