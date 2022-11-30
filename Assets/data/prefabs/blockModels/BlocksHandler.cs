@@ -1,12 +1,10 @@
 using System;
 using System.Collections.Generic;
-using data;
-using data.prefabs.blockModels;
 using Interfaces;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-namespace Present
+namespace data.prefabs.blockModels
 {
     
     public class BlocksHandler : IObsserver
@@ -52,10 +50,20 @@ namespace Present
         }
         public void PositionTheBlocks()
         {
-            
-            boundries = new[] { _level.boundries[0], _level.boundries[1] };
-            var stepX = -(boundries[0].x - boundries[1].x)/_level.rows[1].bricks.Length;
-            var stepY = -(boundries[0].y - boundries[1].y) / _level.rows.Length;
+            var pose = _level.bound.transform;
+            var rt = (RectTransform)pose;
+            var rect = rt.rect;
+            var height = rect.height ;
+            var width = rect.width;
+            var position = pose.position;
+            var startPoint =new Vector2(position.x , position.y) + Vector2.up * height/2 + Vector2.left * width/2;
+            //starting point handled
+
+
+
+            //boundries = new[] { _level.boundries[0], _level.boundries[1] };
+            var stepX = width/_level.rows[1].bricks.Length;
+            var stepY =  height/ _level.rows.Length;
             var rows = _level.rows;
             AllBlockPresenters = new List<BlockPresenter>();
             //var cul = level.rows[0];
@@ -69,7 +77,8 @@ namespace Present
                         var blockData = _level.rows[i].bricks[j];
                         var blockPresenter = new BlockPresenter(DefineTheBlock(blockData).brickGameObject, DefineTheBlock(blockData).brickPoint);
                         blockPresenter.HandleTheAttacher(DefineTheBlock(blockData));
-                        
+                        blockPresenter.position = startPoint + stepX * i *Vector2.right + stepY * j*Vector2.down;
+                        blockPresenter.blockGameObject = _viewer.SpawnTheBlock(DefineTheBlock(blockData).brickGameObject, blockPresenter.position);
                     }
                     else
                     {
@@ -101,24 +110,27 @@ namespace Present
 
         public BrickModel DefineTheBlock(LevelModel.BlockCategories blockCategory )
         {
+            BrickModel brickModel = ScriptableObject.CreateInstance<BrickModel>();
             switch (blockCategory)
             {
                 case LevelModel.BlockCategories.Normal:
                 {
-                    return _level.normalBlock;
+                    brickModel = _level.normalBlock;
                     break;
                 }
                 case LevelModel.BlockCategories.Fire:
                 {
-                    return _level.fireBlock;
+                    brickModel = _level.fireBlock;
                     break;
                 }
                 case LevelModel.BlockCategories.Freez:
                 {
-                    return _level.freezBlock;
+                    brickModel = _level.freezBlock;
                     break;
                 }
+                    
             }
+            return brickModel;
         }
         
         

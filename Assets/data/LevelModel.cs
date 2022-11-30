@@ -11,7 +11,8 @@ namespace data
         public BrickModel normalBlock;
         public BrickModel freezBlock;
 
-
+        public GameObject bound;
+        
         
         public enum BlockCategories
         {
