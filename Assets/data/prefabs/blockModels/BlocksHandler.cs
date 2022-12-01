@@ -14,7 +14,7 @@ namespace data.prefabs.blockModels
         private HoverHandler _hover;
         private Viewer _viewer;
         public Vector2[] boundries;
-        public List<BlockPresenter> AllBlockPresenters;
+        public List<BlockPresenter> allBlockPresenters;
         public int countedBlocks = 0;
         public int gainedPoints;
         public BlocksHandler(LevelModel level, BallHandler ball, HoverHandler hover, Viewer viewer)
@@ -48,15 +48,16 @@ namespace data.prefabs.blockModels
                 }
             }
         }
-        public void PositionTheBlocks()
+        public void HandelThePresenters()
         {
             var pose = _level.bound.transform;
             var rt = (RectTransform)pose;
             var rect = rt.rect;
             var height = rect.height ;
             var width = rect.width;
-            var position = pose.position;
-            var startPoint =new Vector2(position.x , position.y) + Vector2.up * height/2 + Vector2.left * width/2;
+            var position1 = pose.position;
+            var position = new Vector2(position1.x, position1.y)+ Vector2.up * height / 2 + Vector2.left* width/2;
+            var startPoint = position;
             //starting point handled
 
 
@@ -65,7 +66,7 @@ namespace data.prefabs.blockModels
             var stepX = width/_level.rows[1].bricks.Length;
             var stepY =  height/ _level.rows.Length;
             var rows = _level.rows;
-            AllBlockPresenters = new List<BlockPresenter>();
+            allBlockPresenters = new List<BlockPresenter>();
             //var cul = level.rows[0];
 
             for (int i = 0; i < rows.Length; i++)
@@ -74,11 +75,13 @@ namespace data.prefabs.blockModels
                 {
                     if (_level.rows[i].bricks[j] != LevelModel.BlockCategories.None)
                     {
-                        var blockData = _level.rows[i].bricks[j];
-                        var blockPresenter = new BlockPresenter(DefineTheBlock(blockData).brickGameObject, DefineTheBlock(blockData).brickPoint);
-                        blockPresenter.HandleTheAttacher(DefineTheBlock(blockData));
-                        blockPresenter.position = startPoint + stepX * i *Vector2.right + stepY * j*Vector2.down;
-                        blockPresenter.blockGameObject = _viewer.SpawnTheBlock(DefineTheBlock(blockData).brickGameObject, blockPresenter.position);
+                        var blockData = DefineTheBlock(_level.rows[i].bricks[j]);
+                        var blockPresenter = new BlockPresenter(blockData.brickGameObject,blockData.brickPoint);
+                        blockPresenter.HandleTheAttacher(blockData);
+                        blockPresenter.position = startPoint + Vector2.right * j * stepX + Vector2.down * i * stepY;
+                        blockPresenter.blockGameObject = _viewer.SpawnTheBlock(blockData.brickGameObject, blockPresenter.position);
+                        
+                        //every time the attacher in the model changes and atc...
                     }
                     else
                     {
@@ -99,7 +102,7 @@ namespace data.prefabs.blockModels
 
         public void DestroyTheBlock(string blockName)
         {
-            foreach (var block in AllBlockPresenters)
+            foreach (var block in allBlockPresenters)
             {
                 if (block.blockIndexName == blockName)
                 {

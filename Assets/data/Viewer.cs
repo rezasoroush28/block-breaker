@@ -23,7 +23,7 @@ namespace data
             _ball = new BallHandler(normalBallData , fireBallData , freezBallData , this);
             _hover = new HoverHandler(hoverData,this);
             _block = new BlocksHandler(level, _ball, _hover, this);
-            _block.PositionTheBlocks();
+            _block.HandelThePresenters();
             
 
             
@@ -38,7 +38,8 @@ namespace data
         public GameObject SpawnTheBlock(GameObject blockGameObject , Vector2 pose)
         {
             var position = new Vector3(pose.x, pose.y, 0f);
-            var go = Instantiate(blockGameObject, position,blockGameObject.transform.rotation,parent);
+            //if (Camera.main != null) position = Camera.main.WorldToScreenPoint(position);
+            var go = Instantiate(blockGameObject, position,blockGameObject.transform.rotation, parent);
             //var attach = Instantiate(attacher);
             return go;
         }
