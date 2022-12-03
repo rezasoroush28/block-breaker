@@ -1,4 +1,5 @@
 using System;
+using data.prefabs.blockModels;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -7,10 +8,9 @@ namespace data
     [CreateAssetMenu(fileName = "LevelModel" , order = 1)]
     public class LevelModel : ScriptableObject
     {
-        [FormerlySerializedAs("FireBlock")] public BrickModel fireBlock;
-        public BrickModel normalBlock;
-        public BrickModel freezBlock;
-
+        public BlockData fireBlock;
+        public BlockData normalBlock;
+        public BlockData freezBlock;
         public GameObject bound;
         
         

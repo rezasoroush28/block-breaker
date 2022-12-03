@@ -13,8 +13,9 @@ GameObject:
   - component: {fileID: 9185595871138289684}
   - component: {fileID: 4805095425613157323}
   - component: {fileID: 8221345921176378977}
+  - component: {fileID: 8844368942574017048}
   m_Layer: 5
-  m_Name: brickPrefabGameObject
+  m_Name: normalBlockPrefab
   m_TagString: block
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -115,3 +116,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: faeacd1a64973bd428054e43c74b3d0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8844368942574017048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9098558099760431260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfa625aa23b171742946cbe81bc8ea14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisPrefabData: {fileID: 8844368942574017048}
+  point: 2
+  blockCat: 1

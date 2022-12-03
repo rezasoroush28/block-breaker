@@ -35,20 +35,26 @@ namespace data
             _ball.GenerateTheNormalBall();
         }
 
-        public GameObject SpawnTheBlock(GameObject blockGameObject , Vector2 pose)
+        public GameObject SpawnTheBlock(BlockData blockData ,BlockPresenter blockPresenter)
         {
-            var position = new Vector3(pose.x, pose.y, 0f);
-            //if (Camera.main != null) position = Camera.main.WorldToScreenPoint(position);
-            var go = Instantiate(blockGameObject, position,blockGameObject.transform.rotation, parent);
-            //var attach = Instantiate(attacher);
+            var go = Instantiate(blockData, parent).gameObject;
+            go.name = blockPresenter.blockIndexName;
+            go.transform.position = blockPresenter.position;
+            go.GetComponent<BlockData>().presenterForThisBlock = blockPresenter;
             return go;
+        }
+
+        public string GiveMeTheName(GameObject block)
+        {
+            var indexName =block.GetComponent<BlockData>().presenterForThisBlock.blockIndexName;
+            return indexName;
         }
 
         public  void SpawnTheBall(GameObject ballGameObject , Vector2 velocity)
         {
             var pose = ballGameObject.transform.position;
             var go = Instantiate(ballGameObject, ballPose,ballGameObject.transform.rotation,parent);
-            go.GetComponent<Rigidbody2D>().velocity = velocity;
+            go.GetComponent<Rigidbody2D>().velocity = Vector2.up * 10;
         }
 
         public void SpawnTheHover(GameObject hoverGameObject)

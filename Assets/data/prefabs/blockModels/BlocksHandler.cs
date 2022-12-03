@@ -27,11 +27,11 @@ namespace data.prefabs.blockModels
         //public List<Dictionary<GameObject, Vector2>> bricksList;
 
 
-        public void AddObsserverToEachBlock(BlockPresenter block)
+        public void AddObsserverToEachBlock(BlockPresenter blockPresenter)
         {
-            block.AddIt(_ball);
-            block.AddIt(_hover);
-            block.AddIt(this);
+            blockPresenter.AddIt(_ball);
+            blockPresenter.AddIt(_hover);
+            blockPresenter.AddIt(this);
         }
 
         
@@ -40,7 +40,7 @@ namespace data.prefabs.blockModels
         {
             foreach (var inCheckBlock in remainedBlocks)
             {
-                if (inCheckBlock.blockGameObject.name == collidedBlockName)
+               // if (inCheckBlock.blockGameObject.name == collidedBlockName)
                 {
                     inCheckBlock.Notify();
                     remainedBlocks.Remove(inCheckBlock);
@@ -59,10 +59,8 @@ namespace data.prefabs.blockModels
             var position = new Vector2(position1.x, position1.y)+ Vector2.up * height / 2 + Vector2.left* width/2;
             var startPoint = position;
             //starting point handled
-
-
-
-            //boundries = new[] { _level.boundries[0], _level.boundries[1] };
+            
+            
             var stepX = width/_level.rows[1].bricks.Length;
             var stepY =  height/ _level.rows.Length;
             var rows = _level.rows;
@@ -76,11 +74,15 @@ namespace data.prefabs.blockModels
                     if (_level.rows[i].bricks[j] != LevelModel.BlockCategories.None)
                     {
                         var blockData = DefineTheBlock(_level.rows[i].bricks[j]);
-                        var blockPresenter = new BlockPresenter(blockData.brickGameObject,blockData.brickPoint);
-                        blockPresenter.HandleTheAttacher(blockData);
+                        var blockPresenter = new BlockPresenter(this , i , j);
                         blockPresenter.position = startPoint + Vector2.right * j * stepX + Vector2.down * i * stepY;
-                        blockPresenter.blockGameObject = _viewer.SpawnTheBlock(blockData.brickGameObject, blockPresenter.position);
-                        
+                        blockData.presenterForThisBlock = blockPresenter;
+                        var block = _viewer.SpawnTheBlock(blockData , blockPresenter);
+                        allBlockPresenters.Add(blockPresenter);
+                        Debug.Log(_viewer.GiveMeTheName(block));
+
+
+
                         //every time the attacher in the model changes and atc...
                     }
                     else
@@ -102,39 +104,39 @@ namespace data.prefabs.blockModels
 
         public void DestroyTheBlock(string blockName)
         {
-            foreach (var block in allBlockPresenters)
-            {
-                if (block.blockIndexName == blockName)
-                {
-                    Object.Destroy(block.blockGameObject);
-                }
-            }
+            Object.Destroy(GameObject.Find(blockName));
         }
 
-        public BrickModel DefineTheBlock(LevelModel.BlockCategories blockCategory )
+        public BlockData DefineTheBlock(LevelModel.BlockCategories blockCategory )
         {
-            BrickModel brickModel = ScriptableObject.CreateInstance<BrickModel>();
+            BlockData blockData = null;
             switch (blockCategory)
             {
+                    
                 case LevelModel.BlockCategories.Normal:
                 {
-                    brickModel = _level.normalBlock;
+                    blockData = _level.normalBlock;
                     break;
                 }
                 case LevelModel.BlockCategories.Fire:
                 {
-                    brickModel = _level.fireBlock;
+                    blockData = _level.fireBlock;
                     break;
                 }
                 case LevelModel.BlockCategories.Freez:
                 {
-                    brickModel = _level.freezBlock;
+                    blockData = _level.freezBlock;
                     break;
                 }
+
+                    
                     
             }
-            return brickModel;
+            //var block =_viewer.SpawnTheBlock(blockData);
+            return blockData;
         }
+
+       
         
         
 

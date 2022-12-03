@@ -1,4 +1,5 @@
 using System;
+using data.prefabs.blockModels;
 using UnityEngine;
 
 namespace data
@@ -11,8 +12,9 @@ namespace data
         {
             if (other.CompareTag($"block"))
             {
-                var attacher = other.GetComponent<PresenterAttacher>();
-                attacher.thisPresenter.Notify();
+                var attacher = other.GetComponent<BlockData>();
+                var name = attacher.presenterForThisBlock.blockIndexName;
+                attacher.presenterForThisBlock.Notify();
             }
 
             var collidPose = other.ClosestPoint(transform.position);
