@@ -37,10 +37,12 @@ namespace data
 
         public GameObject SpawnTheBlock(BlockData blockData ,BlockPresenter blockPresenter)
         {
-            var go = Instantiate(blockData, parent).gameObject;
+            var goData = Instantiate(blockData, parent);
+            goData.presenterForThisBlock = blockPresenter;
+            var go = goData.gameObject;
             go.name = blockPresenter.blockIndexName;
             go.transform.position = blockPresenter.position;
-            go.GetComponent<BlockData>().presenterForThisBlock = blockPresenter;
+            //goData.GetComponent<BlockData>().presenterForThisBlock = blockPresenter;
             return go;
         }
 
@@ -54,7 +56,7 @@ namespace data
         {
             var pose = ballGameObject.transform.position;
             var go = Instantiate(ballGameObject, ballPose,ballGameObject.transform.rotation,parent);
-            go.GetComponent<Rigidbody2D>().velocity = Vector2.up * 10;
+            go.GetComponent<Rigidbody2D>().velocity = velocity;
         }
 
         public void SpawnTheHover(GameObject hoverGameObject)
