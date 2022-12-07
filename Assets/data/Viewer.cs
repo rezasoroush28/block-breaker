@@ -1,38 +1,53 @@
 using System;
+using data.About_Ball;
+using data.About_Hover;
+using data.level_handler;
 using data.prefabs.blockModels;
 using UnityEngine;
 using UnityEngine.Serialization;
 
 namespace data
 {
-    public class Viewer : MonoBehaviour 
+    public class Viewer : MonoBehaviour
     {
+
+        private GameObject _theHover;
+        private Vector2 _hovrPose;
+        private HoverData _hoverData;
+        
         public Transform parent;
         public Vector2 ballPose;
         public LevelModel level;
-        [FormerlySerializedAs("ballData")] public BallModel normalBallData;
-        public BallModel fireBallData;
-        public BallModel freezBallData;
-        public HoverModel hoverData;
+        
+        
+        //public HoverModel hoverData;
         private BallHandler _ball;
         private HoverHandler _hover;
         private BlocksHandler _block;
+        
+
+        private void Start()
+        {
+           // _hoverData = theHover.GetComponent<HoverData>();
+           // _hoverData.thisGameObject = theHover;
+        }
 
         public void GenerateWholeLevel()
         {
-            _ball = new BallHandler(normalBallData , fireBallData , freezBallData , this);
-            _hover = new HoverHandler(hoverData,this);
+            _ball = new BallHandler(level, this);
+            _hover = new HoverHandler(level,this);
             _block = new BlocksHandler(level, _ball, _hover, this);
             _block.HandelThePresenters();
-            
+            _ball.GenerateTheNormalBall();
+             _hover.GenerateTheHover();
 
-            
         }
         private void Awake()
         {
             
             GenerateWholeLevel();
-            _ball.GenerateTheNormalBall();
+            
+            
         }
 
         public GameObject SpawnTheBlock(BlockData blockData ,BlockPresenter blockPresenter)
@@ -52,20 +67,36 @@ namespace data
             return indexName;
         }
 
-        public  void SpawnTheBall(GameObject ballGameObject , Vector2 velocity)
+        public  void SpawnTheBall(BallData ballData , Vector2 velocity)
         {
-            var pose = ballGameObject.transform.position;
-            var go = Instantiate(ballGameObject, ballPose,ballGameObject.transform.rotation,parent);
+            var pose = ballData.thisGameObject.transform.position;
+            var goData = Instantiate(ballData,parent);
+            var go = goData.gameObject;
             go.GetComponent<Rigidbody2D>().velocity = velocity;
         }
 
-        public void SpawnTheHover(GameObject hoverGameObject)
+        public GameObject SpawnTheHover(HoverData hoverData)
         {
-            var pose = ballPose - new Vector2(0f, -50f);
-            var go = Instantiate(hoverGameObject, pose,hoverGameObject.transform.rotation,parent);
-        }
-        
+            //var pose = hoverData.thisGameObject.transform.position;
+            _hoverData = Instantiate(hoverData, parent);
+            _hovrPose = hoverData.Pose;
+            _theHover = _hoverData.gameObject;
+            return _theHover;
 
-        
+        }
+
+
+        public float HandleTheInput()
+        {
+            var deltaX =Input.GetAxis("Mouse X");
+            return deltaX;
+        }
+
+        private void Update()
+        {
+            var pose = _theHover.transform.position;
+            pose.x += _hover.HandleTheInput();
+            _theHover.transform.position = pose;
+        }
     }
 }
