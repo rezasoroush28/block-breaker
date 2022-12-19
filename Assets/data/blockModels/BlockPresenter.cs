@@ -1,19 +1,22 @@
 using System.Collections.Generic;
+using data.level_handler;
+using data.prefabs.blockModels;
 using Interfaces;
 using UnityEngine;
 
-namespace data.prefabs.blockModels
+namespace data.blockModels
 {
     public class BlockPresenter :  ISubject
     {
         //private BrickModel _data;
         private GameObject _block;
         public int point;
+        public LevelModel.BlockCategories thisBlockCategories;
         //public PresenterAttacher attacher;
         public List<IObsserver> obsservers;
         public string blockIndexName;
         public Vector2 position;
-        public BlockPresenter(BlocksHandler handler , int i , int j)
+        public BlockPresenter(BlocksHandler handler , int i , int j, LevelModel.BlockCategories thisBlockCategories)
         {
             
             obsservers = new List<IObsserver>();
@@ -21,6 +24,7 @@ namespace data.prefabs.blockModels
             this.blockIndexName = i.ToString() + " " + j.ToString();
             //blockData.presenterForThisBlock = this;
             handler.allBlockPresenters.Add(this);
+            this.thisBlockCategories = thisBlockCategories;
             
             
             //HandleTheAttacher(data);

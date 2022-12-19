@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using data.About_Ball;
+using data.About_Hover;
+using data.blockModels;
 using data.level_handler;
 using Interfaces;
 using UnityEngine;
@@ -46,7 +48,6 @@ namespace data.prefabs.blockModels
                 {
                     inCheckBlock.Notify();
                     remainedBlocks.Remove(inCheckBlock);
-                    
                 }
             }
         }
@@ -76,7 +77,7 @@ namespace data.prefabs.blockModels
                     if (_level.rows[i].bricks[j] != LevelModel.BlockCategories.None)
                     {
                         var blockData = DefineTheBlock(_level.rows[i].bricks[j]);
-                        var blockPresenter = new BlockPresenter(this , i , j);
+                        var blockPresenter = new BlockPresenter(this , i , j , blockData.blockCat);
                         blockPresenter.position = startPoint + Vector2.right * j * stepX + Vector2.down * i * stepY;
                         blockData.presenterForThisBlock = blockPresenter;
                         var block = _viewer.SpawnTheBlock(blockData , blockPresenter);

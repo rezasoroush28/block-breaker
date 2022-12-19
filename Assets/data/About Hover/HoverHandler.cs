@@ -1,10 +1,9 @@
-using data.About_Hover;
+using data.blockModels;
 using data.level_handler;
-using data.prefabs.blockModels;
 using Interfaces;
 using UnityEngine;
 
-namespace data
+namespace data.About_Hover
 {
     public class HoverHandler : IObsserver
     {
@@ -14,7 +13,6 @@ namespace data
 
         public HoverHandler(LevelModel level, Viewer viewer)
         {
-            
             _level = level;
             _viewer = viewer;
             _hoverData = level.hoverData;

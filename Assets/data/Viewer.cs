@@ -1,6 +1,7 @@
 using System;
 using data.About_Ball;
 using data.About_Hover;
+using data.blockModels;
 using data.level_handler;
 using data.prefabs.blockModels;
 using UnityEngine;
@@ -11,9 +12,11 @@ namespace data
     public class Viewer : MonoBehaviour
     {
 
+        
         private GameObject _theHover;
-        private Vector2 _hovrPose;
-        private HoverData _hoverData;
+        private HoverData _theHoverData;
+
+        private BallData _theBallData;
         
         public Transform parent;
         public Vector2 ballPose;
@@ -21,9 +24,9 @@ namespace data
         
         
         //public HoverModel hoverData;
-        private BallHandler _ball;
-        private HoverHandler _hover;
-        private BlocksHandler _block;
+        private BallHandler _ballHandler;
+        private HoverHandler _hoverHandler;
+        private BlocksHandler _blockhHandler;
         
 
         private void Start()
@@ -34,12 +37,12 @@ namespace data
 
         public void GenerateWholeLevel()
         {
-            _ball = new BallHandler(level, this);
-            _hover = new HoverHandler(level,this);
-            _block = new BlocksHandler(level, _ball, _hover, this);
-            _block.HandelThePresenters();
-            _ball.GenerateTheNormalBall();
-             _hover.GenerateTheHover();
+            _ballHandler = new BallHandler(level, this);
+            _hoverHandler = new HoverHandler(level,this);
+            _blockhHandler = new BlocksHandler(level, _ballHandler, _hoverHandler, this);
+            _blockhHandler.HandelThePresenters();
+            _ballHandler.GenerateTheNormalBallForFirstTime();
+             _hoverHandler.GenerateTheHover();
 
         }
         private void Awake()
@@ -70,19 +73,28 @@ namespace data
         public  void SpawnTheBall(BallData ballData , Vector2 velocity)
         {
             var pose = ballData.thisGameObject.transform.position;
-            var goData = Instantiate(ballData,parent);
-            var go = goData.gameObject;
+            _theBallData = Instantiate(ballData,parent);
+            var go = _theBallData.gameObject;
+            _theBallData.thisGameObject = go;
             go.GetComponent<Rigidbody2D>().velocity = velocity;
+        }
+
+        public void SpawnTheNewBall(BallData newBallData)
+        {
+            var pose = _theBallData.Pose;
+            var dir = _theBallData.Direction;
+            Destroy(_theBallData.thisGameObject);
+            SpawnTheBall(newBallData , dir * newBallData.velocity);
         }
 
         public GameObject SpawnTheHover(HoverData hoverData)
         {
             //var pose = hoverData.thisGameObject.transform.position;
-            _hoverData = Instantiate(hoverData, parent);
-            _hovrPose = hoverData.Pose;
-            _theHover = _hoverData.gameObject;
+            _theHoverData = Instantiate(hoverData, parent);
+           // _hovrPose = hoverData.Pose;
+           _theHoverData.thisGameObject = _theHoverData.gameObject;
+           _theHover = _theHoverData.thisGameObject;
             return _theHover;
-
         }
 
 
@@ -94,9 +106,13 @@ namespace data
 
         private void Update()
         {
-            var pose = _theHover.transform.position;
-            pose.x += _hover.HandleTheInput();
-            _theHover.transform.position = pose;
+            
+            var pose = _theHoverData.thisGameObject.transform.position;
+            pose.x += _hoverHandler.HandleTheInput();
+            _theHoverData.thisGameObject.transform.position = pose;
         }
+        
+        
+       
     }
 }

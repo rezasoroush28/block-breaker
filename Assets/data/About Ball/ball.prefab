@@ -194,4 +194,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisGameObject: {fileID: 7895327910874691691}
-  velocity: 50
+  velocity: 150
