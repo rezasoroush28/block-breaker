@@ -21,8 +21,10 @@ namespace data.prefabs.blockModels
         public List<BlockPresenter> allBlockPresenters;
         public int countedBlocks = 0;
         public int gainedPoints;
-        public BlocksHandler(LevelModel level, BallHandler ball, HoverHandler hover, Viewer viewer)
+        private GameObject _boundery;
+        public BlocksHandler(LevelModel level, BallHandler ball, HoverHandler hover, Viewer viewer, GameObject canves)
         {
+            _boundery = canves;
             this._level = level;
             this._ball = ball;
             _hover = hover;
@@ -53,7 +55,7 @@ namespace data.prefabs.blockModels
         }
         public void HandelThePresenters()
         {
-            var pose = _level.bound.transform;
+            var pose = _boundery.transform;
             var rt = (RectTransform)pose;
             var rect = rt.rect;
             var height = rect.height ;
@@ -61,6 +63,7 @@ namespace data.prefabs.blockModels
             var position1 = pose.position;
             var position = new Vector2(position1.x, position1.y)+ Vector2.up * height / 2 + Vector2.left* width/2;
             var startPoint = position;
+            
             //starting point handled
             
             
@@ -110,8 +113,9 @@ namespace data.prefabs.blockModels
             Object.Destroy(GameObject.Find(blockName));
         }
 
-        public BlockData DefineTheBlock(LevelModel.BlockCategories blockCategory )
+        public BlockData DefineTheBlock(LevelModel.BlockCategories blockCategory)
         {
+            
             BlockData blockData = null;
             switch (blockCategory)
             {
