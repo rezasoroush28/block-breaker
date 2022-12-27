@@ -27,7 +27,7 @@ namespace data
         private BallHandler _ballHandler;
         private HoverHandler _hoverHandler;
         private BlocksHandler _blockhHandler;
-        
+        public GameObject canvas;
 
         private void Start()
         {
@@ -39,7 +39,7 @@ namespace data
         {
             _ballHandler = new BallHandler(level, this);
             _hoverHandler = new HoverHandler(level,this);
-            _blockhHandler = new BlocksHandler(level, _ballHandler, _hoverHandler, this);
+            _blockhHandler = new BlocksHandler(level, _ballHandler, _hoverHandler, this , canvas);
             _blockhHandler.HandelThePresenters();
             _ballHandler.GenerateTheNormalBallForFirstTime();
              _hoverHandler.GenerateTheHover();
