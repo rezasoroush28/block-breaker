@@ -12,7 +12,7 @@ namespace data
     public class Viewer : MonoBehaviour
     {
 
-        
+        public GameObject endSign;
         private GameObject _theHover;
         private HoverData _theHoverData;
 
@@ -74,6 +74,7 @@ namespace data
         {
             var pose = ballData.thisGameObject.transform.position;
             _theBallData = Instantiate(ballData,parent);
+            //_theBallData.SetTheViewer(this);
             var go = _theBallData.gameObject;
             _theBallData.thisGameObject = go;
             go.GetComponent<Rigidbody2D>().velocity = velocity;
@@ -95,6 +96,11 @@ namespace data
            _theHoverData.thisGameObject = _theHoverData.gameObject;
            _theHover = _theHoverData.thisGameObject;
             return _theHover;
+        }
+
+        public void EndIt()
+        {
+            endSign.SetActive(true);
         }
 
 

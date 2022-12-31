@@ -78,6 +78,7 @@
      <Compile Include="Assets\data\About Hover\HoverModel.cs" />
      <Compile Include="Assets\Interfaces\ISubject.cs" />
      <Compile Include="Assets\data\About Ball\BallCollisionHandler.cs" />
+     <Compile Include="Assets\CanvasColliderSetter.cs" />
      <None Include="Assets\Demigiant\readme_DOTweenPro.txt" />
      <None Include="Assets\Demigiant\DOTweenPro\readme.txt" />
      <None Include="Assets\Demigiant\DemiLib\Core\DemiLib.xml" />

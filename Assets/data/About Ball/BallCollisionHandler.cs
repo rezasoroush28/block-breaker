@@ -1,23 +1,30 @@
-using System;
 using data.prefabs.blockModels;
 using UnityEngine;
 
-namespace data
+namespace data.About_Ball
 {
     public class BallCollisionHandler : MonoBehaviour
     {
-        public Viewer viewer;
+        //public Viewer viewer;
         private Rigidbody2D _rb;
-
+        private BallData _ballData;
+        public Viewer theViewer;
         private void Start()
         {
+            _ballData = gameObject.GetComponent<BallData>();
             _rb = transform.GetComponent<Rigidbody2D>();
+            
         }
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            
-
+            if (other.CompareTag("end"))
+            {
+                
+                _ballData.viewer.EndIt();
+                Destroy(transform.gameObject);
+                
+            }
             var collidPose = other.ClosestPoint(transform.position);
             var normal = collidPose - (Vector2)transform.position;
             normal = new Vector2(normal.x, normal.y);

@@ -6,7 +6,13 @@ namespace data.About_Ball
     {
         public GameObject thisGameObject;
         public float velocity;
+        public Viewer viewer;
 
+
+        public void SetTheViewer(Viewer theViewer)
+        {
+            viewer = theViewer;
+        }
         public Vector2 Pose
         {
             get

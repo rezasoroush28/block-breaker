@@ -6,6 +6,7 @@ TagManager:
   tags:
   - hovr
   - block
+  - end
   layers:
   - Default
   - TransparentFX
