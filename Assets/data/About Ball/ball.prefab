@@ -144,7 +144,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   theViewer: {fileID: 580530035409656577, guid: 9aecb5886465c9140ac0a35090783655, type: 3}
-  end: {fileID: 4792099938508779293, guid: ea0334faf1bf5c24f8ce8e0b164a8fb3, type: 3}
 --- !u!58 &-165471325807706601
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -195,5 +194,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisGameObject: {fileID: 7895327910874691691}
-  velocity: 150
+  velocity: 300
   viewer: {fileID: 0}

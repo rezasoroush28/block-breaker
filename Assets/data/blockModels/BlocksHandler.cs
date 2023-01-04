@@ -40,7 +40,10 @@ namespace data.blockModels
             blockPresenter.AddIt(this);
         }
 
-        
+        public void SetFinishLine()
+        {
+            _viewer.HandleTheFifnishLine(_level.bound);
+        }
 
         public void FindTheBlock(String collidedBlockName, List<BlockPresenter> remainedBlocks)
         {

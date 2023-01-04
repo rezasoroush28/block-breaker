@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -597536116030906526, guid: 6a3510c7bec228948b258e54dfe52e47, type: 3}
       propertyPath: velocity
-      value: 50
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 431138215233616113, guid: 6a3510c7bec228948b258e54dfe52e47, type: 3}
       propertyPath: m_Color.b
@@ -121,7 +121,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7895327910874691691, guid: 6a3510c7bec228948b258e54dfe52e47, type: 3}
       propertyPath: m_Name
-      value: fireBall Variant
+      value: freezBall Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6a3510c7bec228948b258e54dfe52e47, type: 3}

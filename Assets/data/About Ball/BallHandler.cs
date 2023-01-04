@@ -13,6 +13,7 @@ namespace data.About_Ball
         private BallData _normalBallData;
         private BallData _freezBallData;
         private BallData _fireBallData;
+        private BallData _activeBallData;
         public BallHandler(LevelModel levelModel, Viewer viewer)
         {
             var levelModel1 = levelModel;
@@ -22,23 +23,32 @@ namespace data.About_Ball
             _viewer = viewer;
         }
 
+
+        public void FinishTheGame()
+        {
+            _viewer.EndIt();
+        }
         public void GenerateTheNormalBallForFirstTime()
         {
-            _viewer.SpawnTheBall(_normalBallData, GenerateAVelocity()*_normalBallData.velocity);
+            _activeBallData =_viewer.SpawnTheBall(_normalBallData, GenerateAVelocity()*_normalBallData.velocity);
+            _activeBallData.thisBallHandler = this;
         }
         public void GenerateTheNormalBall()
         {
-            _viewer.SpawnTheNewBall(_normalBallData);
+            _activeBallData =_viewer.SpawnTheNewBall(_normalBallData);
+            _activeBallData.thisBallHandler = this;
         }
 
         public void GenerateFireBall()
         {
-            _viewer.SpawnTheNewBall(_fireBallData);
+            _activeBallData = _viewer.SpawnTheNewBall(_fireBallData);
+            _activeBallData.thisBallHandler = this;
         }
         
         public void GenerateFreezeBall()
         {
-            _viewer.SpawnTheNewBall(_freezBallData);
+            _activeBallData =_viewer.SpawnTheNewBall(_freezBallData);
+            _activeBallData.thisBallHandler = this;
         }
 
         public Vector2 GenerateAVelocity()

@@ -43,6 +43,7 @@ namespace data
             _blockhHandler.HandelThePresenters();
             _ballHandler.GenerateTheNormalBallForFirstTime();
              _hoverHandler.GenerateTheHover();
+             _blockhHandler.SetFinishLine();
 
         }
         private void Awake()
@@ -70,7 +71,7 @@ namespace data
             return indexName;
         }
 
-        public  void SpawnTheBall(BallData ballData , Vector2 velocity)
+        public  BallData SpawnTheBall(BallData ballData , Vector2 velocity)
         {
             var pose = ballData.thisGameObject.transform.position;
             _theBallData = Instantiate(ballData,parent);
@@ -78,14 +79,15 @@ namespace data
             var go = _theBallData.gameObject;
             _theBallData.thisGameObject = go;
             go.GetComponent<Rigidbody2D>().velocity = velocity;
+            return _theBallData;
         }
 
-        public void SpawnTheNewBall(BallData newBallData)
+        public BallData SpawnTheNewBall(BallData newBallData)
         {
             var pose = _theBallData.Pose;
             var dir = _theBallData.Direction;
             Destroy(_theBallData.thisGameObject);
-            SpawnTheBall(newBallData , dir * newBallData.velocity);
+            return SpawnTheBall(newBallData , dir * newBallData.velocity);
         }
 
         public GameObject SpawnTheHover(HoverData hoverData)
@@ -104,6 +106,12 @@ namespace data
         }
 
 
+        public void HandleTheFifnishLine(GameObject finishLine)
+        {
+            var go =Instantiate(finishLine, parent);
+            go.transform.position = finishLine.transform.position;
+
+        }
         public float HandleTheInput()
         {
             var deltaX =Input.GetAxis("Mouse X");

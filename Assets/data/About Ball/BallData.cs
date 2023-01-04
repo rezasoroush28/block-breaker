@@ -8,6 +8,7 @@ namespace data.About_Ball
         public float velocity;
         public Viewer viewer;
 
+        public BallHandler thisBallHandler;
 
         public void SetTheViewer(Viewer theViewer)
         {

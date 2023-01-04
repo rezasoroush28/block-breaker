@@ -20,9 +20,8 @@ namespace data.About_Ball
         {
             if (other.CompareTag("end"))
             {
-                
-                _ballData.viewer.EndIt();
                 Destroy(transform.gameObject);
+                _ballData.thisBallHandler.FinishTheGame();
                 
             }
             var collidPose = other.ClosestPoint(transform.position);
