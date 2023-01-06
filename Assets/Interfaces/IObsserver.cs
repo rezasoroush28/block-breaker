@@ -1,6 +1,5 @@
 using data;
 using data.blockModels;
-using data.prefabs.blockModels;
 
 namespace Interfaces
 {

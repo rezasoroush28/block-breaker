@@ -31,7 +31,7 @@ namespace data.About_Ball
         {
             get
             {
-                var direction = (Vector2)transform.GetComponent<Rigidbody2D>().velocity.normalized;
+                var direction = transform.GetComponent<Rigidbody2D>().velocity.normalized;
                 return direction;
             }
             set

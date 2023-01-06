@@ -1,6 +1,6 @@
 using data.About_Ball;
 using data.About_Hover;
-using data.prefabs.blockModels;
+using data.blockModels;
 using UnityEngine;
 
 namespace data.level_handler
@@ -41,7 +41,6 @@ namespace data.level_handler
         public Vector2[] boundries = new Vector2[2];
         //to find boundries;
         
-        [TextArea] [SerializeField]  string comment = "points for every star";
         public int[] pointCount = new int[3];
     }
 }

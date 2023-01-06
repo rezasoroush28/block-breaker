@@ -1,4 +1,4 @@
-using data.prefabs.blockModels;
+using data.blockModels;
 using UnityEngine;
 
 namespace data.About_Ball
@@ -24,19 +24,23 @@ namespace data.About_Ball
                 _ballData.thisBallHandler.FinishTheGame();
                 
             }
-            var collidPose = other.ClosestPoint(transform.position);
-            var normal = collidPose - (Vector2)transform.position;
+
+
+            var position = transform.position;
+            var collidPose = other.ClosestPoint(position);
+            var normal = collidPose - (Vector2)position;
             normal = new Vector2(normal.x, normal.y);
-            var velocity = transform.GetComponent<Rigidbody2D>().velocity; 
+            var velocity = _rb.velocity; 
             var mirror = Mirror(velocity, normal);
-            transform.GetComponent<Rigidbody2D>().velocity = new Vector2(mirror.x, mirror.y);
-            
+            _rb.velocity = new Vector2(mirror.x, mirror.y);
             if (other.CompareTag($"block"))
             {
                 var attacher = other.GetComponent<BlockData>();
-                var name = attacher.presenterForThisBlock.blockIndexName;
+                //var name = attacher.presenterForThisBlock.blockIndexName;
                 attacher.presenterForThisBlock.Notify();
             }
+            
+            
 
         }
 
@@ -45,12 +49,6 @@ namespace data.About_Ball
             var n = normal.normalized;
             v1 -= Vector2.Dot(n, v1) * n *2f;
             return v1;
-        }
-
-        private void Update()
-        {
-            var v = _rb.velocity;
-            Debug.Log(v);
         }
     }
 }

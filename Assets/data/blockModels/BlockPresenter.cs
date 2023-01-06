@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using data.level_handler;
-using data.prefabs.blockModels;
 using Interfaces;
 using UnityEngine;
 
@@ -9,7 +8,7 @@ namespace data.blockModels
     public class BlockPresenter :  ISubject
     {
         //private BrickModel _data;
-        private GameObject _block;
+        //private GameObject _block;
         public int point;
         public LevelModel.BlockCategories thisBlockCategories;
         //public PresenterAttacher attacher;

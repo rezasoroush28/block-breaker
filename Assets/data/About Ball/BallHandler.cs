@@ -1,6 +1,6 @@
+using System.Collections;
 using data.blockModels;
 using data.level_handler;
-using data.prefabs.blockModels;
 using Interfaces;
 using UnityEngine;
 
@@ -59,6 +59,14 @@ namespace data.About_Ball
         }
 
 
+        // ReSharper disable Unity.PerformanceAnalysis
+        public IEnumerator BackToNormal()
+        {
+            Debug.Log("this is working");
+            yield return new WaitForSeconds(2);
+            GenerateTheNormalBall();
+        }
+
         public void RecognizeTheCall(BlockPresenter caller)
         {
             var cat = caller.thisBlockCategories;
@@ -67,11 +75,13 @@ namespace data.About_Ball
                 case LevelModel.BlockCategories.Fire:
                 {
                     GenerateFireBall();
+                    _viewer.BackToNormal();
                     break;
                 }
                 case LevelModel.BlockCategories.Freez:
                 {
                     GenerateFreezeBall();
+                    _viewer.BackToNormal();
                     break;
                 }
             }
@@ -80,6 +90,8 @@ namespace data.About_Ball
         public void UpdateIt(BlockPresenter whoIsCalling)
         {
             RecognizeTheCall(whoIsCalling);
+            
+            
         }
     }
 }

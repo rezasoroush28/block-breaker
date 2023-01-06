@@ -1,11 +1,8 @@
-using System;
 using data.About_Ball;
 using data.About_Hover;
 using data.blockModels;
 using data.level_handler;
-using data.prefabs.blockModels;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace data
 {
@@ -29,11 +26,7 @@ namespace data
         private BlocksHandler _blockhHandler;
         public GameObject canvas;
 
-        private void Start()
-        {
-           // _hoverData = theHover.GetComponent<HoverData>();
-           // _hoverData.thisGameObject = theHover;
-        }
+        
 
         public void GenerateWholeLevel()
         {
@@ -71,10 +64,14 @@ namespace data
             return indexName;
         }
 
-        public  BallData SpawnTheBall(BallData ballData , Vector2 velocity)
+        public  BallData SpawnTheBall(BallData ballData , Vector2 velocity )
         {
-            var pose = ballData.thisGameObject.transform.position;
+            var pastBall = _theBallData;
             _theBallData = Instantiate(ballData,parent);
+            if (pastBall != null)
+            {
+                _theBallData.Pose = pastBall.Pose;
+            }
             //_theBallData.SetTheViewer(this);
             var go = _theBallData.gameObject;
             _theBallData.thisGameObject = go;
@@ -84,7 +81,7 @@ namespace data
 
         public BallData SpawnTheNewBall(BallData newBallData)
         {
-            var pose = _theBallData.Pose;
+            
             var dir = _theBallData.Direction;
             Destroy(_theBallData.thisGameObject);
             return SpawnTheBall(newBallData , dir * newBallData.velocity);
@@ -98,6 +95,11 @@ namespace data
            _theHoverData.thisGameObject = _theHoverData.gameObject;
            _theHover = _theHoverData.thisGameObject;
             return _theHover;
+        }
+
+        public void BackToNormal()
+        {
+            StartCoroutine(_ballHandler.BackToNormal());
         }
 
         public void EndIt()
